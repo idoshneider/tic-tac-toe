@@ -1,7 +1,5 @@
 import React from "react";
-import './game.css'
-// abcd
-import a from '.'
+import './game.css';
 import { useSelector, useDispatch} from "react-redux";
 import store from ".";
 import DrawX from "./actions/DrawX";
