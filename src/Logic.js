@@ -72,7 +72,6 @@ export function NextSymbol(btnid,dispatch,draw){
       }
       else if(history[history.length - 1] === 'X' && document.getElementById(btnid).innerHTML === ''){
         document.getElementById(btnid).innerHTML = draw;
-        defaultColor = document.getElementById(btnid).style.backgroundColor
         document.getElementById(btnid).style.backgroundColor = '#00DDEB'
         history.push(draw);
         index = Number(btnid);
@@ -89,7 +88,6 @@ export function NextSymbol(btnid,dispatch,draw){
       else{
         if(document.getElementById(btnid).innerHTML ===''){
           document.getElementById(btnid).innerHTML = draw;
-          defaultColor = document.getElementById(btnid).style.backgroundColor;
           document.getElementById(btnid).style.backgroundColor = '#AF40FF'
           history.push(draw);
           index = Number(btnid);
