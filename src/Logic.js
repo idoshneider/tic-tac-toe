@@ -81,7 +81,7 @@ export function NextSymbol(btnid,dispatch,draw){
         index = Number(btnid);
         buttonArr[index] = draw;
         if(history.length > 4 ){
-          document.getElementById("winner").innerHTML = IsWin(buttonArr);
+          document.getElementById("winner").innerHTML = IsWin();
           if(IsWin(buttonArr) !== '' || history.length === 9){
             flagGameOver = true;
             document.getElementById("gameover").innerHTML = "Game Over";
@@ -98,7 +98,7 @@ export function NextSymbol(btnid,dispatch,draw){
           index = Number(btnid);
           buttonArr[index] = draw;
           if(history.length > 4){
-            document.getElementById("winner").innerHTML = IsWin(buttonArr);
+            document.getElementById("winner").innerHTML = IsWin();
             if(IsWin(buttonArr) !== '' || history.length === 9){
               flagGameOver = true;
               document.getElementById("gameover").innerHTML = "Game Over";
