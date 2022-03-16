@@ -1,6 +1,5 @@
 
 import './App.css';
-//check
 import Game from './Game';
 import Home from "./components/Home"
 import React from 'react';

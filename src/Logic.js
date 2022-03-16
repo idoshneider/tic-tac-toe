@@ -1,4 +1,3 @@
-import React from "react";
 import DrawX from "./actions/DrawX";
 import DrawO from "./actions/DrawO";
 var history = [];
