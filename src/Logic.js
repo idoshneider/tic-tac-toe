@@ -1,5 +1,14 @@
 import React from "react";
-export function IsWin(buttonArr,flag){
+import DrawX from "./actions/DrawX";
+import DrawO from "./actions/DrawO";
+import { useSelector, useDispatch} from "react-redux";
+import store from ".";
+var history = [];
+var buttonArr = Array(9).fill('');
+var index;
+var flagGameOver = false;
+var defaultColor;
+export function IsWin(){
     if(buttonArr[0] === buttonArr[1] && buttonArr[1] === buttonArr[2] && buttonArr[0] !== ''){
         document.getElementById('0').style.backgroundColor = '#008000'
         document.getElementById('1').style.backgroundColor = '#008000'
@@ -53,9 +62,71 @@ export function IsWin(buttonArr,flag){
         return '';
     }
 }
+export function NextSymbol(btnid,dispatch,draw){
+    if(!flagGameOver){
+      if(history.length === 0){
+        document.getElementById(btnid).innerHTML = draw;
+        defaultColor = document.getElementById(btnid).style.backgroundColor
+        document.getElementById(btnid).style.backgroundColor = '#AF40FF'
+        history.push(draw);
+        index = Number(btnid)
+        buttonArr[index] = draw;
+        dispatch(DrawO());
+      }
+      else if(history[history.length - 1] === 'X' && document.getElementById(btnid).innerHTML === ''){
+        document.getElementById(btnid).innerHTML = draw;
+        defaultColor = document.getElementById(btnid).style.backgroundColor
+        document.getElementById(btnid).style.backgroundColor = '#00DDEB'
+        history.push(draw);
+        index = Number(btnid);
+        buttonArr[index] = draw;
+        if(history.length > 4 ){
+          document.getElementById("winner").innerHTML = IsWin(buttonArr);
+          if(IsWin(buttonArr) !== '' || history.length === 9){
+            flagGameOver = true;
+            document.getElementById("gameover").innerHTML = "Game Over";
+          }
+        }
+        dispatch(DrawX());
+        }
+      else{
+        if(document.getElementById(btnid).innerHTML ===''){
+          document.getElementById(btnid).innerHTML = draw;
+          defaultColor = document.getElementById(btnid).style.backgroundColor;
+          document.getElementById(btnid).style.backgroundColor = '#AF40FF'
+          history.push(draw);
+          index = Number(btnid);
+          buttonArr[index] = draw;
+          if(history.length > 4){
+            document.getElementById("winner").innerHTML = IsWin(buttonArr);
+            if(IsWin(buttonArr) !== '' || history.length === 9){
+              flagGameOver = true;
+              document.getElementById("gameover").innerHTML = "Game Over";
+        }
+          } 
+        dispatch(DrawO());
+              }
+      }
+    }
+    else{
+        document.getElementById("gameover").innerHTML = "Game Over";
+    }
+  }
 
-
-
+export function ClearTable(dispatch){
+    for (let i = 0; i < 9; i++) {
+      // document.getElementById(i.toString()).innerHTML = '';
+      // document.getElementById(i.toString()).style.backgroundColor = defaultColor;
+      document.getElementsByClassName("placeMark")[i].innerHTML = '';
+      document.getElementsByClassName("placeMark")[i].style.backgroundColor = defaultColor;
+    }
+    document.getElementById('winner').innerHTML = '';
+    document.getElementById('gameover').innerHTML = '';
+    history = [];
+    buttonArr = Array(9).fill('');
+    flagGameOver = false;
+    dispatch(DrawX());
+  }
 
 
 
