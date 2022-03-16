@@ -1,8 +1,6 @@
 import React from "react";
 import DrawX from "./actions/DrawX";
 import DrawO from "./actions/DrawO";
-import { useSelector, useDispatch} from "react-redux";
-import store from ".";
 var history = [];
 var buttonArr = Array(9).fill('');
 var index;
