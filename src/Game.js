@@ -15,6 +15,7 @@ function Game (){
     return( 
     <div className="game">
       <h1 id="gameover">{null}</h1>
+      <h3 id="turn">Turn: {draw}</h3>
       <h3 id="winner">{null}</h3>
       <div className="board">
         {

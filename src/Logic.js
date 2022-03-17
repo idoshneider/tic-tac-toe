@@ -81,6 +81,7 @@ export function NextSymbol(btnid,dispatch,draw){
           if(IsWin(buttonArr) !== '' || history.length === 9){
             flagGameOver = true;
             document.getElementById("gameover").innerHTML = "Game Over";
+            document.getElementById("turn").innerHTML = '';
           }
         }
         dispatch(DrawX());
@@ -97,6 +98,8 @@ export function NextSymbol(btnid,dispatch,draw){
             if(IsWin(buttonArr) !== '' || history.length === 9){
               flagGameOver = true;
               document.getElementById("gameover").innerHTML = "Game Over";
+              document.getElementById("turn").innerHTML = '';
+
         }
           } 
         dispatch(DrawO());
