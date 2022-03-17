@@ -1,6 +1,6 @@
 import React from "react";
 import './game.css';
-//a
+//dd
 import { useSelector, useDispatch} from "react-redux";
 import store from ".";
 import {
@@ -18,15 +18,6 @@ function Game (){
       <h1 id="gameover">{null}</h1>
       <h3 id="winner">{null}</h3>
       <div className="board">
-        {/* <button className="placeMark" id = "0" onClick={() => NextSymbol("0",dispatch,draw)}></button>
-        <button className="placeMark" id = "1" onClick={() => NextSymbol("1",dispatch,draw)}></button>
-        <button className="placeMark" id = "2" onClick={() => NextSymbol("2",dispatch,draw)}></button>
-        <button className="placeMark" id = "3" onClick={() => NextSymbol("3",dispatch,draw)}></button>
-        <button className="placeMark" id = "4" onClick={() => NextSymbol("4",dispatch,draw)}></button>
-        <button className="placeMark" id = "5" onClick={() => NextSymbol("5",dispatch,draw)}></button>
-        <button className="placeMark" id = "6" onClick={() => NextSymbol("6",dispatch,draw)}></button>
-        <button className="placeMark" id = "7" onClick={() => NextSymbol("7",dispatch,draw)}></button>
-        <button className="placeMark" id = "8" onClick={() => NextSymbol("8",dispatch,draw)}></button> */}
         {
           arr.map((value,index) =>{
             return <button key={index} id={index} className='placeMark' onClick={() => NextSymbol(index,dispatch,draw)}></button>
