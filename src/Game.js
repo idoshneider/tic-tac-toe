@@ -26,9 +26,9 @@ function Game (){
           )}
      </div>
           <div>
-            <button className="clear" onClick={() => ClearTable(dispatch,buttonArr)}>Clear</button>
+            <button className="clear" onClick={() => ClearTable(dispatch,buttonArr,draw)}>Clear</button>
             <Link to="/">
-              <button className='homeBtn' onClick={() => ClearTable(dispatch,buttonArr)} >
+              <button className='homeBtn' onClick={() => ClearTable(dispatch,buttonArr,draw)} >
                 Home
               </button>
             </Link>

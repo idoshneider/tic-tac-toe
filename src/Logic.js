@@ -81,7 +81,6 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
           if(IsWin(buttonArr) !== '' || history.length === 9){
             flagGameOver = true;
             document.getElementById("gameover").innerHTML = "Game Over";
-            document.getElementById("turn").innerHTML = '';
           }
         }
         dispatch(DrawX());
@@ -97,8 +96,6 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
             if(IsWin(buttonArr) !== '' || history.length === 9){
               flagGameOver = true;
               document.getElementById("gameover").innerHTML = "Game Over";
-              document.getElementById("turn").innerHTML = '';
-
         }
           } 
         dispatch(DrawO());
@@ -110,7 +107,7 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
     }
   }
 
-export function ClearTable(dispatch,buttonArr){
+export function ClearTable(dispatch,buttonArr,draw){
     for (let i = 0; i < 9; i++) {
       // document.getElementById(i.toString()).innerHTML = '';
       // document.getElementById(i.toString()).style.backgroundColor = defaultColor;
