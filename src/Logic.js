@@ -64,7 +64,6 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
     elem = document.getElementById(btnid)
     if(!flagGameOver){
       if(history.length === 0){
-        elem.innerHTML = draw;
         defaultColor = elem.style.backgroundColor
         elem.style.backgroundColor = '#AF40FF'
         history.push(draw);
@@ -73,7 +72,6 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
         dispatch(DrawO());
       }
       else if(history[history.length - 1] === 'X' && elem.innerHTML === ''){
-        elem.innerHTML = draw;
         elem.style.backgroundColor = '#00DDEB'
         history.push(draw);
         index = Number(btnid);
@@ -90,7 +88,6 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
         }
       else{
         if(elem.innerHTML ===''){
-          elem.innerHTML = draw;
           elem.style.backgroundColor = '#AF40FF'
           history.push(draw);
           index = Number(btnid);
