@@ -5,7 +5,7 @@ var index;
 var flagGameOver = false;
 var defaultColor;
 var elem;
-export function IsWin(buttonArr){
+export const IsWin = (buttonArr) => {
     if(buttonArr[0] === buttonArr[1] && buttonArr[1] === buttonArr[2] && buttonArr[0] !== ''){
         document.getElementById('0').style.backgroundColor = '#008000'
         document.getElementById('1').style.backgroundColor = '#008000'
@@ -59,7 +59,7 @@ export function IsWin(buttonArr){
         return '';
     }
 }
-export function NextSymbol(btnid,dispatch,draw,buttonArr){
+export const NextSymbol = (btnid,dispatch,draw,buttonArr) =>{
     elem = document.getElementById(btnid)
     if(!flagGameOver){
       if(history.length === 0){
@@ -106,7 +106,7 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
     }
   }
 
-export function ClearTable(dispatch,buttonArr){
+export const ClearTable = (dispatch,buttonArr) =>{
     for (let i = 0; i < 9; i++) {
       document.getElementsByClassName("placeMark")[i].innerHTML = '';
       buttonArr[i] = '';
