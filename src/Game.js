@@ -12,8 +12,7 @@ function Game (){
     const draw = useSelector(state => state.draw) ;   
     const dispatch = useDispatch();
     store.subscribe(() => console.log(store.getState()));
-    var arr = Array(9).fill('');
-    // var buttonArr = Array(9).fill('')
+    let arr = Array(9).fill('');
     return( 
     <div className="game">
       <h1 id="gameover">{null}</h1>

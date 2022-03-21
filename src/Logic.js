@@ -115,12 +115,12 @@ export function ClearTable(dispatch,buttonArr){
       // document.getElementById(i.toString()).innerHTML = '';
       // document.getElementById(i.toString()).style.backgroundColor = defaultColor;
       document.getElementsByClassName("placeMark")[i].innerHTML = '';
+      buttonArr[i] = '';
       document.getElementsByClassName("placeMark")[i].style.backgroundColor = defaultColor;
     }
     document.getElementById('winner').innerHTML = '';
     document.getElementById('gameover').innerHTML = '';
     history = [];
-    buttonArr = Array(9).fill('');
     flagGameOver = false;
     dispatch(DrawX());
   }
