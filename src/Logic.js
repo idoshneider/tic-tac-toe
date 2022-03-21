@@ -1,11 +1,12 @@
 import DrawX from "./actions/DrawX";
 import DrawO from "./actions/DrawO";
 var history = [];
-var buttonArr = Array(9).fill('');
+// var buttonArr = Array(9).fill('');
 var index;
 var flagGameOver = false;
 var defaultColor;
-export function IsWin(){
+var elem;
+export function IsWin(buttonArr){
     if(buttonArr[0] === buttonArr[1] && buttonArr[1] === buttonArr[2] && buttonArr[0] !== ''){
         document.getElementById('0').style.backgroundColor = '#008000'
         document.getElementById('1').style.backgroundColor = '#008000'
@@ -59,25 +60,26 @@ export function IsWin(){
         return '';
     }
 }
-export function NextSymbol(btnid,dispatch,draw){
+export function NextSymbol(btnid,dispatch,draw,buttonArr){
+    elem = document.getElementById(btnid)
     if(!flagGameOver){
       if(history.length === 0){
-        document.getElementById(btnid).innerHTML = draw;
-        defaultColor = document.getElementById(btnid).style.backgroundColor
-        document.getElementById(btnid).style.backgroundColor = '#AF40FF'
+        elem.innerHTML = draw;
+        defaultColor = elem.style.backgroundColor
+        elem.style.backgroundColor = '#AF40FF'
         history.push(draw);
         index = Number(btnid)
         buttonArr[index] = draw;
         dispatch(DrawO());
       }
-      else if(history[history.length - 1] === 'X' && document.getElementById(btnid).innerHTML === ''){
-        document.getElementById(btnid).innerHTML = draw;
-        document.getElementById(btnid).style.backgroundColor = '#00DDEB'
+      else if(history[history.length - 1] === 'X' && elem.innerHTML === ''){
+        elem.innerHTML = draw;
+        elem.style.backgroundColor = '#00DDEB'
         history.push(draw);
         index = Number(btnid);
         buttonArr[index] = draw;
         if(history.length > 4 ){
-          document.getElementById("winner").innerHTML = IsWin();
+          document.getElementById("winner").innerHTML = IsWin(buttonArr);
           if(IsWin(buttonArr) !== '' || history.length === 9){
             flagGameOver = true;
             document.getElementById("gameover").innerHTML = "Game Over";
@@ -87,14 +89,14 @@ export function NextSymbol(btnid,dispatch,draw){
         dispatch(DrawX());
         }
       else{
-        if(document.getElementById(btnid).innerHTML ===''){
-          document.getElementById(btnid).innerHTML = draw;
-          document.getElementById(btnid).style.backgroundColor = '#AF40FF'
+        if(elem.innerHTML ===''){
+          elem.innerHTML = draw;
+          elem.style.backgroundColor = '#AF40FF'
           history.push(draw);
           index = Number(btnid);
           buttonArr[index] = draw;
           if(history.length > 4){
-            document.getElementById("winner").innerHTML = IsWin();
+            document.getElementById("winner").innerHTML = IsWin(buttonArr);
             if(IsWin(buttonArr) !== '' || history.length === 9){
               flagGameOver = true;
               document.getElementById("gameover").innerHTML = "Game Over";
@@ -111,7 +113,7 @@ export function NextSymbol(btnid,dispatch,draw){
     }
   }
 
-export function ClearTable(dispatch){
+export function ClearTable(dispatch,buttonArr){
     for (let i = 0; i < 9; i++) {
       // document.getElementById(i.toString()).innerHTML = '';
       // document.getElementById(i.toString()).style.backgroundColor = defaultColor;
