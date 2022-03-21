@@ -9,7 +9,7 @@ import { NextSymbol } from "./Logic";
 import { ClearTable } from "./Logic";
 var buttonArr = Array(9).fill('');
 function Game (){
-    const draw = useSelector(state => state.draw) ;   
+    let draw = useSelector(state => state.draw) ;   
     const dispatch = useDispatch();
     store.subscribe(() => console.log(store.getState()));
     let arr = Array(9).fill('');
@@ -26,9 +26,9 @@ function Game (){
           )}
      </div>
           <div>
-            <button className="clear" onClick={() => ClearTable(dispatch,buttonArr,draw)}>Clear</button>
+            <button className="clear" onClick={() => ClearTable(dispatch,buttonArr)}>Clear</button>
             <Link to="/">
-              <button className='homeBtn' onClick={() => ClearTable(dispatch,buttonArr,draw)} >
+              <button className='homeBtn' onClick={() => ClearTable(dispatch,buttonArr)} >
                 Home
               </button>
             </Link>

@@ -1,7 +1,6 @@
 import DrawX from "./actions/DrawX";
 import DrawO from "./actions/DrawO";
 var history = [];
-// var buttonArr = Array(9).fill('');
 var index;
 var flagGameOver = false;
 var defaultColor;
@@ -107,10 +106,8 @@ export function NextSymbol(btnid,dispatch,draw,buttonArr){
     }
   }
 
-export function ClearTable(dispatch,buttonArr,draw){
+export function ClearTable(dispatch,buttonArr){
     for (let i = 0; i < 9; i++) {
-      // document.getElementById(i.toString()).innerHTML = '';
-      // document.getElementById(i.toString()).style.backgroundColor = defaultColor;
       document.getElementsByClassName("placeMark")[i].innerHTML = '';
       buttonArr[i] = '';
       document.getElementsByClassName("placeMark")[i].style.backgroundColor = defaultColor;
