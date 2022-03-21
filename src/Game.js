@@ -21,12 +21,16 @@ function Game (){
       <div className="board">
         {
           arr.map((value,index) =>{
-            return <button key={index} id={index} className='placeMark' onClick={() => NextSymbol(index,dispatch,draw,buttonArr)}>{buttonArr[index]}</button>
+            return <button key={index} id={index} className='placeMark' onClick={() => NextSymbol(index,dispatch,draw,buttonArr)}>
+                      {buttonArr[index]}
+                   </button>
           }
           )}
      </div>
           <div>
-            <button className="clear" onClick={() => ClearTable(dispatch,buttonArr)}>Clear</button>
+            <button className="clear" onClick={() => ClearTable(dispatch,buttonArr)}>
+              Clear
+            </button>
             <Link to="/">
               <button className='homeBtn' onClick={() => ClearTable(dispatch,buttonArr)} >
                 Home
