@@ -12,7 +12,6 @@ function Game (){
     let draw = useSelector(state => state.draw) ;   
     const dispatch = useDispatch();
     store.subscribe(() => console.log(store.getState()));
-    let arr = Array(9).fill('');
     return( 
       <div className="game">
         <h1 id="gameover">
@@ -26,7 +25,7 @@ function Game (){
         </h3>
         <div className="board">
           {
-            arr.map((value,index) =>{
+            buttonArr.map((value,index) =>{
               return <button key={index} id={index} className='placeMark' onClick={() => NextSymbol(index,dispatch,draw,buttonArr)}>
                         {buttonArr[index]}
                     </button>
