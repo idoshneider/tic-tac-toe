@@ -22,7 +22,7 @@
     bottom: 35px ;
     display: inline-flex;
     flex-wrap: wrap;
-    width: 320px;
+    /* width: 320px; */
 }
 .placeMark{
     width: 85px;
