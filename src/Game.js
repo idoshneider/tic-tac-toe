@@ -38,7 +38,7 @@ function Game (){
         <div className="board" style={{width:(numsize+1)*80}}>
           {
             buttonArr.map((value,index) =>{
-              return <button key={index} id={index} className='placeMark' onClick={() => NextSymbol(index,dispatch,draw,buttonArr)}>
+              return <button key={index} id={index} className='placeMark' onClick={() => NextSymbol(index,dispatch,draw,buttonArr,numsize)}>
                         {buttonArr[index]}
                     </button>
             }
