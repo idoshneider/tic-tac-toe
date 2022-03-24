@@ -9,6 +9,7 @@ var winner = ''
 var flag;
 export const IsWin = (buttonArr,size) => { //line by line**********************************************************************************
     var prev = buttonArr[0]; //rows
+    ///////
     for (let i = 0; i < size; i++) {
       flag = true;
       for (var j = i * size; j < i*size+size;j++) {
@@ -26,7 +27,8 @@ export const IsWin = (buttonArr,size) => { //line by line***********************
         prev = buttonArr[j+1];
         
       } 
-      var prev = buttonArr[0]; //columns
+      ////////
+      prev = buttonArr[0]; //columns
       for (let i = 0; i < size; i++) {
         flag = true;
         for (var j = i; j <= size*(size-1) + i;j+=size) {
@@ -44,8 +46,30 @@ export const IsWin = (buttonArr,size) => { //line by line***********************
           prev = buttonArr[i+1];
           
         }
-      
-      
+        //////////
+      prev = buttonArr[0];
+      flag = true;
+      for(let i =0; i<buttonArr.length;i+=size+1){
+        if(prev !== buttonArr[i] || prev === ''){
+          flag = false;
+        }
+        prev = buttonArr[i];
+      }
+      if(flag){
+        return "winner is " + prev;
+      }
+      /////////
+      prev = buttonArr[size-1];
+      flag = true;
+      for(let i =size-1; i <= buttonArr.length-size; i+=size-1){
+        if(prev !== buttonArr[i] || prev === ''){
+          flag = false;
+        }
+        prev = buttonArr[i];
+      }
+      if(flag){
+        return "winner is " + prev;
+      }
 
       return '';
 
