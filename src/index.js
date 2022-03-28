@@ -6,7 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import DrawXorO from './reducers/drowxoro';
+import GameOverOrNot from './reducers/GameOverOrNot';
+import WhoWon from './reducers/WhoWon';
 const reducer = combineReducers({
+  winner:WhoWon,
+  gameover: GameOverOrNot,
   draw: DrawXorO
 })
 const store = createStore(reducer ,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

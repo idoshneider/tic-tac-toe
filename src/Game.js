@@ -1,23 +1,39 @@
+import store from "./index";
 import React from "react";
 import {useState} from 'react' ;
 import './game.css';
+//a
 import { useSelector, useDispatch} from "react-redux";
-import store from ".";
 import {
  Link
 } from "react-router-dom";
 import { NextSymbol } from "./Logic";
 import { ClearTable } from "./Logic";
+import WriteNothing from "./actions/WriteNothing";
 // var buttonArr = Array(9).fill('');
 var buttonArr = Array(9).fill('');
 var numsize =3;
 function Game (){
     const [size = 3,setSize] = useState('');
-    let draw = useSelector(state => state.draw) ;   
+    let draw = useSelector(state => state.draw) ;
+    let gameover = useSelector(state => state.gameover)   
+    let winner = useSelector(state =>state.winner)
     const dispatch = useDispatch();
     store.subscribe(() => console.log(store.getState()));
     const buildArr = (event) =>{
       if(event.key === 'Enter'){
+         dispatch(WriteNothing())
+         numsize = Number(size);
+         if(numsize >=3){
+           buttonArr = Array(Math.pow(numsize,2)).fill('')
+         }
+         else{
+          numsize = 3;
+          buttonArr = Array(Math.pow(numsize,2)).fill('')
+         }
+         ;
+         setSize('');
+         ClearTable(dispatch,buttonArr);
          numsize = Number(size);
          buttonArr = Array(Math.pow(numsize,2)).fill('');
          setSize('');
@@ -27,18 +43,18 @@ function Game (){
     return( 
       <div className="game">
         <h1 id="gameover">
-          {null}
+          {gameover}
         </h1>
         <h3 id="turn">
           Turn: {draw}
         </h3>
         <h3 id="winner">
-          {null}
+          {winner}
         </h3>
         <div className="board" style={{width:(numsize+1)*80}}>
           {
             buttonArr.map((value,index) =>{
-              return <button key={index} id={index} className='placeMark' onClick={() => NextSymbol(index,dispatch,draw,buttonArr,numsize)}>
+              return <button style={{width:85,height:93}} key={index} id={index} className={buttonArr[index]} onClick={() => NextSymbol(index,dispatch,draw,buttonArr,numsize)}>
                         {buttonArr[index]}
                     </button>
             }
@@ -51,11 +67,11 @@ function Game (){
               onKeyPress = {buildArr}
               className='searchbar'
               type='text'
-              placeholder='Enter Size'
+              placeholder='Enter Size (size 3 and bigger)'
               />
-              <button className="clear" onClick={() => ClearTable(dispatch,buttonArr)}>
-                Clear
-              </button>
+                <button className="clear" onClick={() => ClearTable(dispatch,buttonArr)}>
+                  Clear
+                </button>
               <Link to="/">
                 <button className='homeBtn' onClick={() => ClearTable(dispatch,buttonArr)} >
                   Home
