@@ -25,18 +25,14 @@ function Game (){
          dispatch(WriteNothing())
          numsize = Number(size);
          if(numsize >=3){
-           buttonArr = Array(Math.pow(numsize,2)).fill('')
+           buttonArr = Array(Math.pow(numsize,2)).fill('');
          }
          else{
           numsize = 3;
-          buttonArr = Array(Math.pow(numsize,2)).fill('')
+          buttonArr = Array(Math.pow(numsize,2)).fill('');
          }
-         ;
          setSize('');
          ClearTable(dispatch,buttonArr);
-         numsize = Number(size);
-         buttonArr = Array(Math.pow(numsize,2)).fill('');
-         setSize('');
       }
       
     }
