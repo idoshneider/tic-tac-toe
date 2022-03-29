@@ -51,9 +51,12 @@ function Game (){
           {
             buttonArr.map((value,index) =>{
               return <button style={{width:85,height:93}} key={index} id={index} className={buttonArr[index]} onClick={() => NextSymbol(index,dispatch,draw,buttonArr,numsize)}>
-                        {buttonArr[index]}
+                        {value}
                     </button>
+                    // return <Box value={value]} onCli></Box>
             }
+
+            
             )}
       </div>
             <div>
