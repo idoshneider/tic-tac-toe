@@ -4,6 +4,7 @@ var history = [];
 var index;
 var flagGameOver = false;
 var defaultColor;
+//a
 var elem;
 var winner = ''
 var flag;
