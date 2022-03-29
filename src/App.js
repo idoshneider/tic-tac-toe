@@ -1,7 +1,7 @@
 
 import './App.css';
 import Game from './Game';
-import Home from "./components/Home"
+import Home from "./components/Home/Home"
 import React from 'react';
 import {
   BrowserRouter as Router,
