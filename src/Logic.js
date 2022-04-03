@@ -8,7 +8,7 @@ var history = [];
 var index;
 var flagGameOver = false;
 var flag;
-export const IsWin = (buttonArr,size) => { //line by line**********************************************************************************
+export const IsWin = (buttonArr,size) => {
     var prev = buttonArr[0]; //rows
     ///////
     for (let i = 0; i < size; i++) {
