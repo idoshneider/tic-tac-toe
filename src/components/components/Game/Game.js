@@ -3,11 +3,12 @@ import React from "react";
 import {useState} from 'react' ;
 import './game.css';
 import { useSelector, useDispatch} from "react-redux";
-import { CreateClearButton } from "../Utilities/CreateClearButton";
-import { CreateHomeButton } from "../Utilities/CreateHomeButton";
-import { DrawBoard } from "../../components/Utilities/DrawBoard";
-import buildArr from "../Utilities/buildArr.js";
-import { CreateInput } from "../Utilities/CreateInput";
+import DrawBoard from "./DrawBoard";
+import Createinput, { CreateInput } from "./CreateInput";
+import Scoreboard from "./ScoreBoard/ScoreBoard.js";
+import Button from "./Button/Button.js";
+// import { HandleClickNextSymbol } from "../Utilities/NextSymbol.js";
+import {IsWin} from "../Utilities/IsWIn"
 function Game (){
     let [size,setSize] = useState(3);
     let [numsize,setNumSize] = useState(3);
@@ -21,33 +22,111 @@ function Game (){
     let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
     let dispatch = useDispatch();
     store.subscribe(() => console.log(store.getState()));
+    const HandleClickClearTable = () =>{
+      setWinner("");
+      setSym("X");
+      for (let k = 0; k < buttonArr.length; k++) {
+        buttonArr[k] = '';
+      }
+      SetButtonArr(buttonArr);
+      setSym("X");
+      setOver("");
+      history = [];
+      SetHistory(history);
+    
+    }
+    const buildArr = (event) =>{ //get size,numsize,dispatch,buttonarr,event? export cleartable
+      if(event.key === 'Enter'){
+         numsize = size;
+         if(numsize >= 3){
+           setNumSize(size)
+           buttonArr = Array(Math.pow(numsize, 2)).fill('')
+           SetButtonArr(buttonArr);
+         }
+         else{
+          numsize = 3;
+          setSize(3);
+          setNumSize(3)
+          buttonArr = Array(Math.pow(numsize, 2)).fill('')
+          SetButtonArr(buttonArr);
+         }
+         event.target.value = '';
+         HandleClickClearTable();
+      }
+    }
+
+
+    const HandleClickNextSymbol = (btnid) =>{
+      let index = Number(btnid);
+      let flagGameOver;
+      if(history.length < buttonArr.length && whowin ===''){
+         flagGameOver = false;
+      }
+      else{
+         flagGameOver = true;
+      }
+    
+      if(!flagGameOver){
+        if(history.length === 0){
+          history.push(sym);
+          SetHistory(history);
+          buttonArr[index] = sym;
+          setSym("O");
+        }
+        else if(history[history.length - 1] === 'X' && buttonArr[index] === ''){
+          history.push(sym);
+          SetHistory(history);
+          buttonArr[index] = sym;
+          if(history.length > 4 ){
+            if(IsWin(buttonArr,size) === "winner is O"){
+              setWinner("winner is O")
+            }
+            if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
+              flagGameOver = true;
+              setOver("Game Over")
+            }
+          }
+          setSym("X")
+          }
+        else{
+          if(buttonArr[index] ===''){
+            history.push(sym);
+            SetHistory(history);
+            buttonArr[index] = sym;
+            if(history.length > 4){
+              if(IsWin(buttonArr,size) === "winner is X"){
+                setWinner("winner is X")
+              }
+              if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
+                flagGameOver = true;
+                setOver("Game Over")
+              }
+            }
+          setSym("O")
+                }
+        }
+      }
+      else{
+        setOver("Game Over")
+        flagGameOver = true;
+      }
+    }
+
     return( 
       <div className="game">
-        <h1 id="gameover">
-          {/* {gameover} */}
-          {over}
-        </h1>
-        <h3 id="turn">
-          {/* Turn: {draw} */}
-          Turn: {sym}
-        </h3>
-        <h3 id="winner">
-          {/* {winner} */}
-          {whowin}
-        </h3>
+        {
+          <Scoreboard over={over} sym={sym} whowin={whowin}></Scoreboard>
+        }
         <div className="board" style={{width:(numsize + 1)*83}}>
         {            
-        // DrawBoard(dispatch,draw,buttonArr,size,winner,history,SetHistory)
-           DrawBoard(dispatch,sym,setSym,draw,buttonArr,size,winner,history,SetHistory,setOver,setWinner,whowin)
+          <DrawBoard buttonArr={buttonArr} HandleClickNextSymbol={HandleClickNextSymbol}></DrawBoard>
 
         }
       </div>
             <div>
-              {CreateInput(setSize,buttonArr,history,SetHistory,SetButtonArr,size,numsize,setNumSize,dispatch,buildArr,sym,setSym,setOver,setWinner)}
-              {/* {CreateClearButton(dispatch,buttonArr,history,SetHistory,SetButtonArr)} */}
-              {CreateClearButton(dispatch,buttonArr,history,SetHistory,SetButtonArr,sym,setSym,setOver,setWinner)}
-              {/* {CreateHomeButton(dispatch,buttonArr,history,SetHistory,SetButtonArr)} */}
-              {CreateHomeButton(dispatch,buttonArr,history,SetHistory,SetButtonArr,sym,setSym,setOver,setWinner)}
+              <Createinput setSize={setSize} buildArr={buildArr}></Createinput>
+              <Button clsName={'clear'} action={HandleClickClearTable}></Button>
+              <Button clsName={'homeBtn'}></Button>
             </div> 
     </div>
     )
