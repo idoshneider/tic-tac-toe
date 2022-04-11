@@ -79,14 +79,14 @@ function Game (){
           buttonArr[index] = symbol;
           if(history.length > 4 ){
             if(IsWin(buttonArr,size) === "winner is O"){
-              setWinner("winner is O")
+              setWinner("winner is O");
             }
             if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
               // flagGameOver = true;
               setGameOver(true);
             }
           }
-          setSymbol("X")
+          setSymbol("X");
           }
         else{
           if(buttonArr[index] ===''){
@@ -95,14 +95,14 @@ function Game (){
             buttonArr[index] = symbol;
             if(history.length > 4){
               if(IsWin(buttonArr,size) === "winner is X"){
-                setWinner("winner is X")
+                setWinner("winner is X");
               }
               if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
                 // flagGameOver = true;
                 setGameOver(true);
               }
             }
-          setSymbol("O")
+          setSymbol("O");
                 }
         }
       }
