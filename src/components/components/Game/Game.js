@@ -13,24 +13,24 @@ function Game (){
     let [size,setSize] = useState(3);
     let [numsize,setNumSize] = useState(3);
     //let draw = useSelector(state => state.draw);
-    let [sym,setSym] = useState('X');
+    let [symbol,setSymbol] = useState('X');
     //let gameover = useSelector(state => state.gameover);
-    let [over,setOver] = useState(false);
+    let [gameOver,setGameOver] = useState(false);
     //let winner = useSelector(state => state.winner);
-    let [whowin,setWinner] = useState("")
+    let [winner,setWinner] = useState("")
     let [history,SetHistory] = useState([]);
     let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
     //let dispatch = useDispatch();
     //store.subscribe(() => console.log(store.getState()));
     const HandleClickClearTable = () =>{
       setWinner("");
-      setSym("X");
+      setSymbol("X");
       for (let k = 0; k < buttonArr.length; k++) {
         buttonArr[k] = '';
       }
       SetButtonArr(buttonArr);
-      setSym("X");
-      setOver(false);
+      setSymbol("X");
+      setGameOver(false);
       history = [];
       SetHistory(history);
     
@@ -59,55 +59,55 @@ function Game (){
     const HandleClickNextSymbol = (btnid) =>{
       let index = Number(btnid);
       // let flagGameOver;
-      // if(history.length < buttonArr.length && whowin ===''){
+      // if(history.length < buttonArr.length && winner ===''){
       //    flagGameOver = false;
       // }
       // else{
       //    flagGameOver = true;
       // }
     
-      if(!over){
+      if(!gameOver){
         if(history.length === 0){
-          history.push(sym);
+          history.push(symbol);
           SetHistory(history);
-          buttonArr[index] = sym;
-          setSym("O");
+          buttonArr[index] = symbol;
+          setSymbol("O");
         }
         else if(history[history.length - 1] === 'X' && buttonArr[index] === ''){
-          history.push(sym);
+          history.push(symbol);
           SetHistory(history);
-          buttonArr[index] = sym;
+          buttonArr[index] = symbol;
           if(history.length > 4 ){
             if(IsWin(buttonArr,size) === "winner is O"){
               setWinner("winner is O")
             }
             if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
               // flagGameOver = true;
-              setOver(true);
+              setGameOver(true);
             }
           }
-          setSym("X")
+          setSymbol("X")
           }
         else{
           if(buttonArr[index] ===''){
-            history.push(sym);
+            history.push(symbol);
             SetHistory(history);
-            buttonArr[index] = sym;
+            buttonArr[index] = symbol;
             if(history.length > 4){
               if(IsWin(buttonArr,size) === "winner is X"){
                 setWinner("winner is X")
               }
               if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
                 // flagGameOver = true;
-                setOver(true);
+                setGameOver(true);
               }
             }
-          setSym("O")
+          setSymbol("O")
                 }
         }
       }
       else{
-        setOver(true);
+        setGameOver(true);
         // flagGameOver = true;
       }
     }
@@ -115,23 +115,21 @@ function Game (){
     return( 
       <div className="game">
         <div className="scoreBoard">
-          {
-          <Scoreboard over={over} sym={sym} whowin={whowin}></Scoreboard>
-          }
+            <Scoreboard gameOver={gameOver} symbol={symbol} winner={winner}></Scoreboard>
         </div>
         
         <div className="board" style={{width:(numsize + 1)*83}}>
-        {            
-          <DrawBoard buttonArr={buttonArr} HandleClickNextSymbol={HandleClickNextSymbol}></DrawBoard>
-        }
-      </div>
-            <div className="input">
-              <Createinput setSize={setSize} buildArr={buildArr}></Createinput>
-            </div> 
-            <div className="button">
-              <Button clsName={'clear'} action={HandleClickClearTable}></Button>
-              <Button clsName={'homeBtn'}></Button>
-            </div>
+            <DrawBoard buttonArr={buttonArr} HandleClickNextSymbol={HandleClickNextSymbol}></DrawBoard>
+        </div>
+
+        <div className="input">
+            <Createinput setSize={setSize} buildArr={buildArr}></Createinput>
+        </div> 
+
+        <div className="button">
+            <Button clsName={'clear'} action={HandleClickClearTable}></Button>
+            <Button clsName={'homeBtn'}></Button>
+        </div>
     </div>
     )
   }
