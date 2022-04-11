@@ -1,5 +1,6 @@
 
 import React from 'react';
+import "./DrawBoard.css"
 
 const Drawboard = ({buttonArr,HandleClickNextSymbol}) => {
     return (

@@ -1,10 +1,10 @@
-import store from "../../../index.js";
+//import store from "../../../index.js";
 import React from "react";
 import {useState} from 'react' ;
 import './game.css';
-import { useSelector, useDispatch} from "react-redux";
-import DrawBoard from "./DrawBoard";
-import Createinput, { CreateInput } from "./CreateInput";
+//import { useSelector, useDispatch} from "react-redux";
+import DrawBoard from "./DrawBoard/DrawBoard";
+import Createinput, { CreateInput } from "./CreateInput/CreateInput";
 import Scoreboard from "./ScoreBoard/ScoreBoard.js";
 import Button from "./Button/Button.js";
 // import { HandleClickNextSymbol } from "../Utilities/NextSymbol.js";
@@ -12,16 +12,16 @@ import {IsWin} from "../Utilities/IsWIn"
 function Game (){
     let [size,setSize] = useState(3);
     let [numsize,setNumSize] = useState(3);
-    let draw = useSelector(state => state.draw);
+    //let draw = useSelector(state => state.draw);
     let [sym,setSym] = useState('X');
-    let gameover = useSelector(state => state.gameover);
-    let [over,setOver] = useState('');
-    let winner = useSelector(state => state.winner);
+    //let gameover = useSelector(state => state.gameover);
+    let [over,setOver] = useState(false);
+    //let winner = useSelector(state => state.winner);
     let [whowin,setWinner] = useState("")
     let [history,SetHistory] = useState([]);
     let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
-    let dispatch = useDispatch();
-    store.subscribe(() => console.log(store.getState()));
+    //let dispatch = useDispatch();
+    //store.subscribe(() => console.log(store.getState()));
     const HandleClickClearTable = () =>{
       setWinner("");
       setSym("X");
@@ -30,7 +30,7 @@ function Game (){
       }
       SetButtonArr(buttonArr);
       setSym("X");
-      setOver("");
+      setOver(false);
       history = [];
       SetHistory(history);
     
@@ -58,15 +58,15 @@ function Game (){
 
     const HandleClickNextSymbol = (btnid) =>{
       let index = Number(btnid);
-      let flagGameOver;
-      if(history.length < buttonArr.length && whowin ===''){
-         flagGameOver = false;
-      }
-      else{
-         flagGameOver = true;
-      }
+      // let flagGameOver;
+      // if(history.length < buttonArr.length && whowin ===''){
+      //    flagGameOver = false;
+      // }
+      // else{
+      //    flagGameOver = true;
+      // }
     
-      if(!flagGameOver){
+      if(!over){
         if(history.length === 0){
           history.push(sym);
           SetHistory(history);
@@ -82,8 +82,8 @@ function Game (){
               setWinner("winner is O")
             }
             if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
-              flagGameOver = true;
-              setOver("Game Over")
+              // flagGameOver = true;
+              setOver(true);
             }
           }
           setSym("X")
@@ -98,8 +98,8 @@ function Game (){
                 setWinner("winner is X")
               }
               if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
-                flagGameOver = true;
-                setOver("Game Over")
+                // flagGameOver = true;
+                setOver(true);
               }
             }
           setSym("O")
@@ -107,27 +107,32 @@ function Game (){
         }
       }
       else{
-        setOver("Game Over")
-        flagGameOver = true;
+        setOver(true);
+        // flagGameOver = true;
       }
     }
 
     return( 
       <div className="game">
-        {
+        <div className="scoreBoard">
+          {
           <Scoreboard over={over} sym={sym} whowin={whowin}></Scoreboard>
         }
+        </div>
+        
         <div className="board" style={{width:(numsize + 1)*83}}>
         {            
           <DrawBoard buttonArr={buttonArr} HandleClickNextSymbol={HandleClickNextSymbol}></DrawBoard>
 
         }
       </div>
-            <div>
+            <div className="input">
               <Createinput setSize={setSize} buildArr={buildArr}></Createinput>
+            </div> 
+            <div className="button">
               <Button clsName={'clear'} action={HandleClickClearTable}></Button>
               <Button clsName={'homeBtn'}></Button>
-            </div> 
+            </div>
     </div>
     )
   }

@@ -6,102 +6,13 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  /* color: black   ;    */
+  color: black   ;   
   background-color: #57c56969;
   background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
 }
-.board{
-  position: relative;
-  bottom: 35px ;
-  display: inline-flex;
-  flex-wrap: wrap;
-  /* width: 320px; */
-}
-/* .placeMark{
-  width: 85px;
-  height: 93px;
-} */
 .O{
 background-color: #00ddeb;
 
 }.X{
 background-color: #AF40FF;
 }
-
-.a1{
-  color: black;
-}
-.homeBtn{
-  /* CSS */
-    position: relative;
-    right: 75%;
-    bottom: 42px;
-    align-items: center;
-    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-    border: 0;
-    border-radius: 8px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    display: flex;
-    font-family: Phantomsans, sans-serif;
-    font-size: 20px;
-    justify-content: center;
-    line-height: 1em;
-    max-width: 100%;
-    min-width: 140px;
-    padding: 19px 24px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-  .homeBtn:active,
-  .homeBtn:hover {
-    outline: 0;
-  }
-  @media (min-width: 768px) {
-    .homeBtn {
-      font-size: 24px;
-      min-width: 196px;
-    }
-  }
-  .clear{
-    /* CSS */
-    position: relative;
-    top: 20px;
-    left: 30%;
-    align-items: center;
-    background-image: linear-gradient(144deg,#00DDEB, #5B42F3 50%,#AF40FF);
-    border: 0;
-    border-radius: 8px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    display: flex;
-    font-family: Phantomsans, sans-serif;
-    font-size: 20px;
-    justify-content: center;
-    line-height: 1em;
-    max-width: 100%;
-    min-width: 140px;
-    padding: 19px 24px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-  /* .clear:active{
-    outline: 0;
-    --main-bg-colorX : "#FFFFFF";
-  } */
-  @media (min-width: 768px) {
-    .clear {
-      font-size: 24px;
-      min-width: 196px;
-    }
-  }
