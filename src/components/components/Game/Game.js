@@ -117,13 +117,12 @@ function Game (){
         <div className="scoreBoard">
           {
           <Scoreboard over={over} sym={sym} whowin={whowin}></Scoreboard>
-        }
+          }
         </div>
         
         <div className="board" style={{width:(numsize + 1)*83}}>
         {            
           <DrawBoard buttonArr={buttonArr} HandleClickNextSymbol={HandleClickNextSymbol}></DrawBoard>
-
         }
       </div>
             <div className="input">
