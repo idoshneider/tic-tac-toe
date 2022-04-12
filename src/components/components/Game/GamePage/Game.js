@@ -3,12 +3,12 @@ import React from "react";
 import {useState} from 'react' ;
 import './game.css';
 //import { useSelector, useDispatch} from "react-redux";
-import DrawBoard from "./Utilities/DrawBoard/DrawBoard";
-import Createinput, { CreateInput } from "./Utilities/CreateInput/CreateInput";
-import Scoreboard from "./Utilities/ScoreBoard/ScoreBoard.js";
-import Button from "./Utilities/Button/Button.js";
+import DrawBoard from "../Utilities/DrawBoard/DrawBoard";
+import Createinput, { CreateInput } from "../Utilities/CreateInput/CreateInput";
+import Scoreboard from "../Utilities/ScoreBoard/ScoreBoard.js";
+import Button from "../Utilities/Button/Button.js";
 // import { HandleClickNextSymbol } from "../Utilities/NextSymbol.js";
-import {IsWin} from "./Utilities/IsWIn"
+import {IsWin} from "../Utilities/IsWIn"
 import Clock from 'react-live-clock';
 function Game (){
     let [size,setSize] = useState(3);

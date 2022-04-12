@@ -1,6 +1,6 @@
 
 import './App.css';
-import Game from '../Game/Game';
+import Game from '../Game/GamePage/Game';
 import Home from "../Home/Home"
 import React from 'react';
 import {
