@@ -5,7 +5,7 @@ import React from 'react';
 import {
   Link
 } from "react-router-dom";
-import Button from '../Game/Button/Button';
+import Button from '../Game/Utilities/Button/Button';
 function Home() {
   return (
       <div className="App">
