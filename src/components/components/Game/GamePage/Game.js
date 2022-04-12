@@ -4,7 +4,7 @@ import {useState} from 'react' ;
 import './game.css';
 //import { useSelector, useDispatch} from "react-redux";
 import DrawBoard from "../Utilities/DrawBoard/DrawBoard";
-import Createinput, { CreateInput } from "../Utilities/CreateInput/CreateInput";
+import Createinput from "../Utilities/CreateInput/CreateInput";
 import Scoreboard from "../Utilities/ScoreBoard/ScoreBoard.js";
 import Button from "../Utilities/Button/Button.js";
 // import { HandleClickNextSymbol } from "../Utilities/NextSymbol.js";
