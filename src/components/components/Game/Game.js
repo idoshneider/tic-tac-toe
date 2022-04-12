@@ -9,6 +9,7 @@ import Scoreboard from "./ScoreBoard/ScoreBoard.js";
 import Button from "./Button/Button.js";
 // import { HandleClickNextSymbol } from "../Utilities/NextSymbol.js";
 import {IsWin} from "../Utilities/IsWIn"
+import Clock from 'react-live-clock';
 function Game (){
     let [size,setSize] = useState(3);
     let [numsize,setNumSize] = useState(3);
@@ -24,7 +25,6 @@ function Game (){
     //store.subscribe(() => console.log(store.getState()));
     const HandleClickClearTable = () =>{
       setWinner("");
-      setSymbol("X");
       for (let k = 0; k < buttonArr.length; k++) {
         buttonArr[k] = '';
       }
@@ -44,10 +44,10 @@ function Game (){
            SetButtonArr(buttonArr);
          }
          else{
-          numsize = 3;
+          // numsize = 3;
           setSize(3);
           setNumSize(3)
-          buttonArr = Array(Math.pow(numsize, 2)).fill('')
+          buttonArr = Array(Math.pow(3, 2)).fill('')
           SetButtonArr(buttonArr);
          }
          event.target.value = '';
@@ -58,14 +58,6 @@ function Game (){
 
     const HandleClickNextSymbol = (btnid) =>{
       let index = Number(btnid);
-      // let flagGameOver;
-      // if(history.length < buttonArr.length && winner ===''){
-      //    flagGameOver = false;
-      // }
-      // else{
-      //    flagGameOver = true;
-      // }
-    
       if(!gameOver){
         if(history.length === 0){
           history.push(symbol);
@@ -114,6 +106,9 @@ function Game (){
 
     return( 
       <div className="game">
+        <div className='time'>
+          <Clock format={'HH:mm:ss'} ticking = {true} timezone = {'israel'} />
+        </div>
         <div className="scoreBoard">
             <Scoreboard gameOver={gameOver} symbol={symbol} winner={winner}></Scoreboard>
         </div>
@@ -126,7 +121,7 @@ function Game (){
             <Createinput setSize={setSize} buildArr={buildArr}></Createinput>
         </div> 
 
-        <div className="button">
+        <div className="button1">
             <Button clsName={'clear'} action={HandleClickClearTable}></Button>
             <Button clsName={'homeBtn'}></Button>
         </div>
