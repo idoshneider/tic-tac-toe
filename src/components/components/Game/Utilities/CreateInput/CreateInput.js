@@ -2,10 +2,10 @@
 import React from 'react';
 import "./CreateInput.css"
 
-const Createinput = ({setSize,buildArr}) => {
+const Createinput = ({SetSize,buildArr}) => {
   return (
     <input 
-      onChange = {(event) => setSize(Number(event.target.value))}
+      onChange = {(event) => SetSize(Number(event.target.value))}
       onKeyPress = {(event) => buildArr(event)}
       className='searchbar'
       type='number'

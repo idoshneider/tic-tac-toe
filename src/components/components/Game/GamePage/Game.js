@@ -11,42 +11,42 @@ import Button from "../Utilities/Button/Button.js";
 import {IsWin} from "../Utilities/IsWIn"
 import Clock from 'react-live-clock';
 function Game (){
-    let [size,setSize] = useState(3);
-    let [numsize,setNumSize] = useState(3);
+    let [size,SetSize] = useState(3);
+    let [numsize,SetNumSize] = useState(3);
     //let draw = useSelector(state => state.draw);
-    let [symbol,setSymbol] = useState('X');
+    let [symbol,SetSymbol] = useState('X');
     //let gameover = useSelector(state => state.gameover);
-    let [gameOver,setGameOver] = useState(false);
+    let [gameOver,SetGameOver] = useState(false);
     //let winner = useSelector(state => state.winner);
-    let [winner,setWinner] = useState("")
+    let [winner,SetWinner] = useState("")
     let [history,SetHistory] = useState([]);
     let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
     //let dispatch = useDispatch();
     //store.subscribe(() => console.log(store.getState()));
     const HandleClickClearTable = () =>{
-      setWinner("");
+      SetWinner("");
       for (let k = 0; k < buttonArr.length; k++) {
         buttonArr[k] = '';
       }
       SetButtonArr(buttonArr);
-      setSymbol("X");
-      setGameOver(false);
+      SetSymbol("X");
+      SetGameOver(false);
       history = [];
       SetHistory(history);
     
     }
-    const buildArr = (event) =>{ //get size,numsize,dispatch,buttonarr,event? export cleartable
+    const BuildArr = (event) =>{ //get size,numsize,dispatch,buttonarr,event? export cleartable
       if(event.key === 'Enter'){
          numsize = size;
          if(numsize >= 3){
-           setNumSize(size)
+           SetNumSize(size)
            buttonArr = Array(Math.pow(numsize, 2)).fill('')
            SetButtonArr(buttonArr);
          }
          else{
           // numsize = 3;
-          setSize(3);
-          setNumSize(3)
+          SetSize(3);
+          SetNumSize(3)
           buttonArr = Array(Math.pow(3, 2)).fill('')
           SetButtonArr(buttonArr);
          }
@@ -63,7 +63,7 @@ function Game (){
           history.push(symbol);
           SetHistory(history);
           buttonArr[index] = symbol;
-          setSymbol("O");
+          SetSymbol("O");
         }
         else if(history[history.length - 1] === 'X' && buttonArr[index] === ''){
           history.push(symbol);
@@ -71,14 +71,14 @@ function Game (){
           buttonArr[index] = symbol;
           if(history.length > 4 ){
             if(IsWin(buttonArr,size) === "winner is O"){
-              setWinner("winner is O");
+              SetWinner("winner is O");
             }
             if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
               // flagGameOver = true;
-              setGameOver(true);
+              SetGameOver(true);
             }
           }
-          setSymbol("X");
+          SetSymbol("X");
           }
         else{
           if(buttonArr[index] ===''){
@@ -87,19 +87,19 @@ function Game (){
             buttonArr[index] = symbol;
             if(history.length > 4){
               if(IsWin(buttonArr,size) === "winner is X"){
-                setWinner("winner is X");
+                SetWinner("winner is X");
               }
               if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
                 // flagGameOver = true;
-                setGameOver(true);
+                SetGameOver(true);
               }
             }
-          setSymbol("O");
+          SetSymbol("O");
                 }
         }
       }
       else{
-        setGameOver(true);
+        SetGameOver(true);
         // flagGameOver = true;
       }
     }
@@ -118,7 +118,7 @@ function Game (){
         </div>
 
         <div className="input">
-            <Createinput setSize={setSize} buildArr={buildArr}></Createinput>
+            <Createinput SetSize={SetSize} buildArr={BuildArr}></Createinput>
         </div> 
 
         <div className="button1">
