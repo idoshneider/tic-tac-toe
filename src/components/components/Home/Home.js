@@ -2,9 +2,6 @@ import logo from '../../../tictactoe.png';
 import '../../components/App/App.css';
 //message
 import React from 'react';
-import {
-  Link
-} from "react-router-dom";
 import Button from '../Game/Utilities/Button/Button';
 function Home() {
   return (
