@@ -23,7 +23,7 @@ function Game (){
     let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
     //let dispatch = useDispatch();
     //store.subscribe(() => console.log(store.getState()));
-    
+
     const HandleClickClearTable = () =>{
       SetWinner("");
       for (let k = 0; k < buttonArr.length; k++) {
