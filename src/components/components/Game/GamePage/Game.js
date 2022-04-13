@@ -18,7 +18,7 @@ function Game (){
     //let gameover = useSelector(state => state.gameover);
     let [gameOver,SetGameOver] = useState(false);
     //let winner = useSelector(state => state.winner);
-    let [winner,SetWinner] = useState("")
+    let [winner,SetWinner] = useState("");
     let [history,SetHistory] = useState([]);
     let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
     //let dispatch = useDispatch();
@@ -33,29 +33,26 @@ function Game (){
       SetGameOver(false);
       history = [];
       SetHistory(history);
-    
     }
-    const BuildArr = (event) =>{ //get size,numsize,dispatch,buttonarr,event? export cleartable
+    const BuildArr = (event) =>{
       if(event.key === 'Enter'){
          numsize = size;
          if(numsize >= 3){
-           SetNumSize(size)
-           buttonArr = Array(Math.pow(numsize, 2)).fill('')
+           SetNumSize(size);
+           buttonArr = Array(Math.pow(numsize, 2)).fill('');
            SetButtonArr(buttonArr);
          }
          else{
           // numsize = 3;
           SetSize(3);
-          SetNumSize(3)
-          buttonArr = Array(Math.pow(3, 2)).fill('')
+          SetNumSize(3);
+          buttonArr = Array(Math.pow(3, 2)).fill('');
           SetButtonArr(buttonArr);
          }
          event.target.value = '';
          HandleClickClearTable();
       }
     }
-
-
     const HandleClickNextSymbol = (btnid) =>{
       let index = Number(btnid);
       if(!gameOver){
