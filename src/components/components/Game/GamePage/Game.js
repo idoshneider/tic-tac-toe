@@ -23,6 +23,7 @@ function Game (){
     let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
     //let dispatch = useDispatch();
     //store.subscribe(() => console.log(store.getState()));
+    
     const HandleClickClearTable = () =>{
       SetWinner("");
       for (let k = 0; k < buttonArr.length; k++) {
@@ -34,6 +35,7 @@ function Game (){
       history = [];
       SetHistory(history);
     }
+
     const BuildArr = (event) =>{
       if(event.key === 'Enter'){
          numsize = size;
@@ -53,6 +55,7 @@ function Game (){
          HandleClickClearTable();
       }
     }
+
     const HandleClickNextSymbol = (btnid) =>{
       let index = Number(btnid);
       if(!gameOver){

@@ -11,10 +11,10 @@ const Button = ({clsName,action}) => {
                  <Link to="/">
                     <button className={clsName}>Home</button>
                  </Link>
-            : 
-                 <Link to="/Game">
-                     <button className={clsName}>Start</button>
-                 </Link>
+                : 
+                    <Link to="/Game">
+                        <button className={clsName}>Start</button>
+                    </Link>
         }
             
         </>
