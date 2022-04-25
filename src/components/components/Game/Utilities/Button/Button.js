@@ -9,7 +9,7 @@ const Button = ({clsName,action}) => {
             clsName === 'clear' ? <button className={clsName} onClick={action}>Clear</button>
             :clsName==='homeBtn' ?
                  <Link to="/">
-                    <button className={clsName}>Home</button>
+                    <button className={clsName} onClick={action}>Home</button>
                  </Link>
                 : 
                     <Link to="/Game">

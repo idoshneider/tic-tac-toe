@@ -1,6 +1,6 @@
-// const WriteNothing = () =>{
-//     return {
-//         type: ''
-//     }
-// }
-// export default WriteNothing;
+const WriteNothing = () =>{
+    return {
+        type: ''
+    }
+}
+export default WriteNothing;

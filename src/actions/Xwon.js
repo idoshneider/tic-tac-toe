@@ -1,7 +1,7 @@
 
-// const Xwon = () =>{
-//     return {
-//         type: "winner is X"
-//     }
-// }
-// export default Xwon;
+const Xwon = () =>{
+    return {
+        type: "winner is X"
+    }
+}
+export default Xwon;

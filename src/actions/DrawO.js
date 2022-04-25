@@ -1,6 +1,6 @@
-// const DrawO = () =>{
-//     return {
-//         type: 'drawo'
-//     }
-// }
-// export default DrawO;
+const DrawO = () =>{
+    return {
+        type: 'drawo'
+    }
+}
+export default DrawO;
