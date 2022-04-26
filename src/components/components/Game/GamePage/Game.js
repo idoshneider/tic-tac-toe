@@ -19,7 +19,6 @@ import WriteNothing from "../../../../actions/WriteNothing"
 import WriteGameOver from "../../../../actions/WriteGameOver"
 import Owon from "../../../../actions/Owon"
 import Xwon from "../../../../actions/Xwon"
-import SetSize from "../../../../actions/SetSIze";
 
 function Game (){
     // let [size,SetSize] = useState(3);
