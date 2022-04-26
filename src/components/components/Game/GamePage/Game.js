@@ -20,10 +20,11 @@ import WriteGameOver from "../../../../actions/WriteGameOver"
 import Owon from "../../../../actions/Owon"
 import Xwon from "../../../../actions/Xwon"
 import SetSize from "../../../../actions/SetSIze";
+
 function Game (){
     // let [size,SetSize] = useState(3);
     let size = useSelector(state => state.size);
-    let [numsize,SetNumSize] = useState(3);
+    let [numsize,SetNumSize] = useState(size);
     // let [symbol,SetSymbol] = useState('X');SetGameOver
     let symbol = useSelector(state => state.symbol);
     // let [gameOver,SetGameOver] = useState(false);
@@ -31,7 +32,7 @@ function Game (){
     let winner = useSelector(state => state.winner);
     // let [winner,SetWinner] = useState("");
     let [history,SetHistory] = useState([]);
-    let [buttonArr,SetButtonArr] = useState(Array(9).fill(''));
+    let [buttonArr,SetButtonArr] = useState(Array(Math.pow(size,2)).fill(''));
     let dispatch = useDispatch();
     store.subscribe(() => console.log(store.getState()));
 
@@ -45,8 +46,8 @@ function Game (){
       dispatch(DrawX());
       // SetGameOver(false);
       dispatch(WriteNothing());
-      history = [];
-      SetHistory(history);
+      // history = [];
+      SetHistory([]);
     }
 
     const BuildArr = (event) =>{
@@ -73,8 +74,8 @@ function Game (){
       }
     }
 
-    const HandleClickNextSymbol = (btnid) =>{
-      let index = Number(btnid);
+    const HandleClickNextSymbol = (index) =>{
+      // let index = btnid;
       if(!gameOver){
         if(history.length === 0){
           history.push(symbol);
@@ -88,11 +89,11 @@ function Game (){
           SetHistory(history);
           buttonArr[index] = symbol;
           if(history.length > 4 ){
-            if(IsWin(buttonArr,numsize) === "winner is O"){
+            if(IsWin(buttonArr,size) === "winner is O"){
               // SetWinner("winner is O");
               dispatch(Owon());
             }
-            if(IsWin(buttonArr,numsize) !== '' || history.length === buttonArr.length){
+            if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
               // flagGameOver = true;
               // SetGameOver(true);
               dispatch(WriteGameOver())
@@ -107,11 +108,11 @@ function Game (){
             SetHistory(history);
             buttonArr[index] = symbol;
             if(history.length > 4){
-              if(IsWin(buttonArr,numsize) === "winner is X"){
+              if(IsWin(buttonArr,size) === "winner is X"){
                 // SetWinner("winner is X");
                 dispatch(Xwon());
               }
-              if(IsWin(buttonArr,numsize) !== '' || history.length === buttonArr.length){
+              if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
                 // flagGameOver = true;
                 // SetGameOver(true);
                 dispatch(WriteGameOver())
@@ -132,7 +133,7 @@ function Game (){
     return( 
       <div className="game">
         <div className='time'>
-          <Clock format={'HH:mm:ss'} ticking = {true} timezone = {'israel'} />
+            <Clock format={'HH:mm:ss'} ticking = {true} timezone = {'israel'} />
         </div>
         <div className="scoreBoard">
             <Scoreboard gameOver={gameOver} symbol={symbol} winner={winner}></Scoreboard>
