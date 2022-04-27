@@ -11,8 +11,10 @@ import WhoWon from './reducers/WhoWon';
 import UpdateSize from './reducers/UpdateSize';
 import UpdateHistory from './reducers/UpdateHistory';
 import UpdateButtonArr from './reducers/UpdateButtonArr';
+import UpdateNumSize from './reducers/UpdateNumSize';
 
 const reducer = combineReducers({
+  numsize: UpdateNumSize,
   buttonArr:UpdateButtonArr,
   history:UpdateHistory,
   size:UpdateSize,
