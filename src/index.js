@@ -10,8 +10,10 @@ import GameOverOrNot from './reducers/GameOverOrNot';
 import WhoWon from './reducers/WhoWon';
 import UpdateSize from './reducers/UpdateSize';
 import UpdateHistory from './reducers/UpdateHistory';
+import UpdateButtonArr from './reducers/UpdateButtonArr';
 
 const reducer = combineReducers({
+  buttonArr:UpdateButtonArr,
   history:UpdateHistory,
   size:UpdateSize,
   winner:WhoWon,
