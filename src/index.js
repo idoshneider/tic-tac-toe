@@ -9,7 +9,10 @@ import DrawXorO from './reducers/drowxoro';
 import GameOverOrNot from './reducers/GameOverOrNot';
 import WhoWon from './reducers/WhoWon';
 import UpdateSize from './reducers/UpdateSize';
+import UpdateHistory from './reducers/UpdateHistory';
+
 const reducer = combineReducers({
+  history:UpdateHistory,
   size:UpdateSize,
   winner:WhoWon,
   gameOver: GameOverOrNot,

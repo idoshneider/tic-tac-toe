@@ -19,7 +19,8 @@ import WriteNothing from "../../../../actions/WriteNothing"
 import WriteGameOver from "../../../../actions/WriteGameOver"
 import Owon from "../../../../actions/Owon"
 import Xwon from "../../../../actions/Xwon"
-
+import PushToHistory from "../../../../actions/PushToHistory";
+import ClearHistory from "../../../../actions/ClearHistory";
 function Game (){
     // let [size,SetSize] = useState(3);
     let size = useSelector(state => state.size);
@@ -30,23 +31,26 @@ function Game (){
     let gameOver = useSelector(state => state.gameOver);
     let winner = useSelector(state => state.winner);
     // let [winner,SetWinner] = useState("");
-    let [history,SetHistory] = useState([]);
-    let [buttonArr,SetButtonArr] = useState(Array(Math.pow(size,2)).fill(''));
+    // let [history,SetHistory] = useState([]); // use redux
+    let history = useSelector(state => state.history);
+    let [buttonArr,SetButtonArr] = useState(Array(Math.pow(size,2)).fill('')); //use redux
     let dispatch = useDispatch();
     store.subscribe(() => console.log(store.getState()));
 
     const HandleClickClearTable = () =>{
       // SetWinner("");
-      for (let k = 0; k < buttonArr.length; k++) {
-        buttonArr[k] = '';
-      }
+      // for (let k = 0; k < buttonArr.length; k++) {
+      //   buttonArr[k] = '';
+      // }
+      buttonArr.fill('');
       SetButtonArr(buttonArr);
       // SetSymbol("X");
       dispatch(DrawX());
       // SetGameOver(false);
       dispatch(WriteNothing());
       // history = [];
-      SetHistory([]);
+      // SetHistory([]);
+      dispatch(ClearHistory())
     }
 
     const BuildArr = (event) =>{
@@ -77,15 +81,17 @@ function Game (){
       // let index = btnid;
       if(!gameOver){
         if(history.length === 0){
-          history.push(symbol);
-          SetHistory(history);
+          // history.push(symbol);
+          // SetHistory(history);
+          dispatch(PushToHistory(symbol));
           buttonArr[index] = symbol;
           // SetSymbol("O");
           dispatch(DrawO());
         }
         else if(history[history.length - 1] === 'X' && buttonArr[index] === ''){
-          history.push(symbol);
-          SetHistory(history);
+          // history.push(symbol);
+          // SetHistory(history);
+          dispatch(PushToHistory(symbol));
           buttonArr[index] = symbol;
           if(history.length > 4 ){
             if(IsWin(buttonArr,size) === "winner is O"){
@@ -95,7 +101,7 @@ function Game (){
             if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
               // flagGameOver = true;
               // SetGameOver(true);
-              dispatch(WriteGameOver())
+              dispatch(WriteGameOver());
             }
           }
           // SetSymbol("X");
@@ -103,8 +109,9 @@ function Game (){
           }
         else{
           if(buttonArr[index] ===''){
-            history.push(symbol);
-            SetHistory(history);
+            // history.push(symbol);
+            // SetHistory(history);
+            dispatch(PushToHistory(symbol));
             buttonArr[index] = symbol;
             if(history.length > 4){
               if(IsWin(buttonArr,size) === "winner is X"){
@@ -114,7 +121,7 @@ function Game (){
               if(IsWin(buttonArr,size) !== '' || history.length === buttonArr.length){
                 // flagGameOver = true;
                 // SetGameOver(true);
-                dispatch(WriteGameOver())
+                dispatch(WriteGameOver());
               }
             }
           // SetSymbol("O");
@@ -124,7 +131,7 @@ function Game (){
       }
       else{
         // SetGameOver(true);
-        dispatch(WriteGameOver())
+        dispatch(WriteGameOver());
         // flagGameOver = true;
       }
     }
