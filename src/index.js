@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/components/App/App';
 import reportWebVitals from './reportWebVitals';
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import DrawXorO from './reducers/drowxoro';
+import GameOverOrNot from './reducers/GameOverOrNot';
+import WhoWon from './reducers/WhoWon';
+import UpdateSize from './reducers/UpdateSize';
+import UpdateHistory from './reducers/UpdateHistory';
+import UpdateButtonArr from './reducers/UpdateButtonArr';
+import UpdateNumSize from './reducers/UpdateNumSize';
+
 const reducer = combineReducers({
-  draw: DrawXorO
+  numsize: UpdateNumSize,
+  buttonArr:UpdateButtonArr,
+  history:UpdateHistory,
+  size:UpdateSize,
+  winner:WhoWon,
+  gameOver: GameOverOrNot,
+  symbol: DrawXorO
 })
 const store = createStore(reducer ,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 ReactDOM.render(
