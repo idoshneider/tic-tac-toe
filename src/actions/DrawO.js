@@ -1,4 +1,4 @@
-const DrawO = () =>{
+const DrawO = () =>{//a
     return {
         type: 'drawo'
     }
