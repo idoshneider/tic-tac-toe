@@ -1,0 +1,14 @@
+.board{
+    position: relative;
+    bottom: 35px ;
+    display: inline-flex;
+    flex-wrap: wrap;
+    /* width: 320px; */
+  }
+  .O{
+    background-color: #00ddeb;
+    
+    }
+.X{
+    background-color: #AF40FF;
+    }
