@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./Button.css"
 
-const Button = ({clsName,action}) => {
+const Button = (props) => {
     return (
         <>
         {
-            clsName === 'clear' ? <button className={clsName} onClick={action}>Clear</button>
-            :clsName==='homeBtn' ?
+            props.clsName === 'clear' ? <button className={props.clsName} onClick={props.action}>Clear</button>
+            :props.clsName==='homeBtn' ?
                  <Link to="/">
-                    <button className={clsName} onClick={action}>Home</button>
+                    <button className={props.clsName} onClick={props.action}>Home</button>
                  </Link>
                 : 
                     <Link to="/Game">
-                        <button className={clsName}>Start</button>
+                        <button className={props.clsName}>Start</button>
                     </Link>
         }
             
