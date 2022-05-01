@@ -32,7 +32,7 @@ function Game (){
         </div>
         
         <div className="board" style={{width:(numsize + 1)*83}}>
-            <DrawBoard buttonArr={buttonArr} HandleClickNextSymbol={HandleClickNextSymbol}></DrawBoard>
+            <DrawBoard buttonArr={buttonArr} action={HandleClickNextSymbol}></DrawBoard>
         </div>
 
         <div className="input">

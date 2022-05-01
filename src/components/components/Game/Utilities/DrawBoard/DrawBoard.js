@@ -7,7 +7,7 @@ const Drawboard = (props) => {
         <>
             {
                 props.buttonArr.map((value,index) =>{
-                    return <button style={{width:85,height:93}} key={index} id={index} className={props.buttonArr[index]} onClick={() => props.HandleClickNextSymbol(index)}>
+                    return <button style={{width:85,height:93}} key={index} id={index} className={props.buttonArr[index]} onClick={() => props.action(index)}>
                               {props.buttonArr[index]}
                           </button>
                   }
