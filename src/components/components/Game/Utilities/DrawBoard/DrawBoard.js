@@ -2,13 +2,13 @@
 import React from 'react';
 import "./DrawBoard.css"
 
-const Drawboard = ({buttonArr,HandleClickNextSymbol}) => {
+const Drawboard = (props) => {
     return (
         <>
             {
-                buttonArr.map((value,index) =>{
-                    return <button style={{width:85,height:93}} key={index} id={index} className={buttonArr[index]} onClick={() => HandleClickNextSymbol(index)}>
-                              {buttonArr[index]}
+                props.buttonArr.map((value,index) =>{
+                    return <button style={{width:85,height:93}} key={index} id={index} className={props.buttonArr[index]} onClick={() => props.HandleClickNextSymbol(index)}>
+                              {props.buttonArr[index]}
                           </button>
                   }
                   )
