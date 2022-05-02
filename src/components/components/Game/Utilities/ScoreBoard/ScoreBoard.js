@@ -2,7 +2,6 @@ import React from 'react';
 import "./ScoreBoard.css"
 
 const Scoreboard = (props) => {
-    let strTurn = "is" + props.symbol;
     return (
         <>
         {
@@ -16,10 +15,10 @@ const Scoreboard = (props) => {
             </>
             : <div className='divturn'>
                 <h3 className='turn'>Turn: </h3>
-                <h3 className={strTurn}>{props.symbol}</h3>
+                <h3 className={`is-${props.symbol}`}>{props.symbol}</h3>
               </div>
         }
-        </>
+        </> 
     );
 }
 

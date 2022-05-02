@@ -24,7 +24,7 @@ import Xwon from "../../../../../../actions/ScoreBoardActions/Xwon";
             store.dispatch(PushToHistory(symbol));
             store.dispatch(InsertToBtnArr(symbol,index));
   
-            if(history.length > 4 ){
+            if(history.length > size ){
               if(IsWin(buttonArr,size) === "winner is O"){
                 store.dispatch(Owon());
               }
@@ -39,7 +39,7 @@ import Xwon from "../../../../../../actions/ScoreBoardActions/Xwon";
               store.dispatch(PushToHistory(symbol));
               store.dispatch(InsertToBtnArr(symbol,index));
   
-              if(history.length > 4){
+              if(history.length > size){
                 if(IsWin(buttonArr,size) === "winner is X"){
                   store.dispatch(Xwon());
                 }

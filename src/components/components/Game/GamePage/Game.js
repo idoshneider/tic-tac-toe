@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './game.css';
 
 import DrawBoard from "../Utilities/DrawBoard/DrawBoard";
@@ -8,7 +8,6 @@ import Button from "../Utilities/Button/Button.js";
 
 import Clock from 'react-live-clock';
 import { useSelector } from "react-redux";
-import store from "../../../../index"
 import HandleClickClearTable from "../Utilities/Button/ClickHandlers/HandleClickClearTable";
 import buildArr from "../../../../components/components/Game/Utilities/CreateInput/InputHandler/BuildArr"
 import HandleClickNextSymbol from "../Utilities/DrawBoard/BoardClickHandler/HandleClickNextSymbol";
@@ -19,13 +18,13 @@ function Game (){
     let gameOver = useSelector(state => state.gameOver);
     let winner = useSelector(state => state.winner);
     let buttonArr = useSelector(state => state.buttonArr);
-    store.subscribe(() => console.log(store.getState()));
 
     return( 
       <div className="game">
         <div className='time'>
             <Clock format={'HH:mm:ss'} ticking = {true} timezone = {'israel'} />
         </div>
+
         <div className="scoreBoard">
             <Scoreboard gameOver={gameOver} symbol={symbol} winner={winner}></Scoreboard>
         </div>
