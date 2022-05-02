@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import './game.css';
 
 import DrawBoard from "../Utilities/DrawBoard/DrawBoard";
