@@ -1,12 +1,12 @@
-import DrawO from "../../../../../../actions/DrawO";
-import InsertToBtnArr from "../../../../../../actions/InsertToBtnArr";
-import Owon from "../../../../../../actions/Owon";
-import PushToHistory from "../../../../../../actions/PushToHistory";
-import WriteGameOver from "../../../../../../actions/WriteGameOver";
+import DrawO from "../../../../../../actions/SYmbolActions/DrawO";
+import InsertToBtnArr from "../../../../../../actions/ActionsBtnArr/InsertToBtnArr";
+import Owon from "../../../../../../actions/ScoreBoardActions/Owon";
+import PushToHistory from "../../../../../../actions/HistoryActions/PushToHistory";
+import WriteGameOver from "../../../../../../actions/ScoreBoardActions/WriteGameOver";
 import { IsWin } from "../../IsWIn";
 import store from "../../../../../../index"
-import DrawX from "../../../../../../actions/DrawX";
-import Xwon from "../../../../../../actions/Xwon";
+import DrawX from "../../../../../../actions/SYmbolActions/DrawX";
+import Xwon from "../../../../../../actions/ScoreBoardActions/Xwon";
 
     const HandleClickNextSymbol = (index) =>{
         let gameOver = store.getState().gameOver;

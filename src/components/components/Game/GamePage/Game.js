@@ -1,5 +1,4 @@
 import React from "react";
-import {useState} from 'react' ;
 import './game.css';
 
 import DrawBoard from "../Utilities/DrawBoard/DrawBoard";
@@ -15,7 +14,7 @@ import buildArr from "../../../../components/components/Game/Utilities/CreateInp
 import HandleClickNextSymbol from "../Utilities/DrawBoard/BoardClickHandler/HandleClickNextSymbol";
 
 function Game (){
-    let numsize = useSelector(state => state.numsize);
+    let widthSize = useSelector(state => state.numsize);
     let symbol = useSelector(state => state.symbol);
     let gameOver = useSelector(state => state.gameOver);
     let winner = useSelector(state => state.winner);
@@ -31,7 +30,7 @@ function Game (){
             <Scoreboard gameOver={gameOver} symbol={symbol} winner={winner}></Scoreboard>
         </div>
         
-        <div className="board" style={{width:(numsize + 1)*83}}>
+        <div className="board" style={{width:(widthSize + 1)*83}}>
             <DrawBoard buttonArr={buttonArr} action={HandleClickNextSymbol}></DrawBoard>
         </div>
 

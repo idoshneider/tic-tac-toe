@@ -1,6 +1,6 @@
-import ClearBtnArr from "../../../../../../actions/ClearBtnArr";
-import ClearHistory from "../../../../../../actions/ClearHistory";
-import DrawX from "../../../../../../actions/DrawX";
+import ClearBtnArr from "../../../../../../actions/ActionsBtnArr/ClearBtnArr";
+import ClearHistory from "../../../../../../actions/HistoryActions/ClearHistory";
+import DrawX from "../../../../../../actions/SYmbolActions/DrawX";
 import WriteNothing from "../../../../../../actions/WriteNothing";
 import store from "../../../../../../index"
 const HandleClickClearTable = () =>{

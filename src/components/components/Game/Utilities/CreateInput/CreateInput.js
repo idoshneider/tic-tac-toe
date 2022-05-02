@@ -1,15 +1,14 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import SetSize from '../../../../../actions/SetSIze';
+import SetSize from '../../../../../actions/SizeActions/SetSIze';
 import "./CreateInput.css"
 
 const Createinput = (props) => {
   let dispatch = useDispatch();
-  let x;
   return (
     <input 
-      onChange = {(event) => x=dispatch(SetSize((Number(event.target.value))))}
+      onChange = {(event) => dispatch(SetSize((Number(event.target.value))))}
       onKeyPress = {(event) => props.buildArr(event)}
       className='searchbar'
       type='number'

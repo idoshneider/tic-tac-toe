@@ -5,13 +5,13 @@ import App from './components/components/App/App';
 import reportWebVitals from './reportWebVitals';
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
-import DrawXorO from './reducers/drowxoro';
-import GameOverOrNot from './reducers/GameOverOrNot';
-import WhoWon from './reducers/WhoWon';
-import UpdateSize from './reducers/UpdateSize';
-import UpdateHistory from './reducers/UpdateHistory';
-import UpdateButtonArr from './reducers/UpdateButtonArr';
-import UpdateNumSize from './reducers/UpdateNumSize';
+import DrawXorO from './reducers/SymbolReducer/drowxoro';
+import GameOverOrNot from './reducers/ScoreBoardReducers/GameOverOrNot';
+import WhoWon from './reducers/ScoreBoardReducers/WhoWon';
+import UpdateSize from './reducers/UpdateSizeReducers/UpdateSize';
+import UpdateHistory from './reducers/UpdateHistory-BtnArr/UpdateHistory';
+import UpdateButtonArr from './reducers/UpdateHistory-BtnArr/UpdateButtonArr';
+import UpdateNumSize from './reducers/UpdateSizeReducers/UpdateNumSize';
 
 const reducer = combineReducers({
   numsize: UpdateNumSize,
