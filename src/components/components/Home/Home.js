@@ -11,7 +11,7 @@ function Home() {
         <p>Created By Ido</p>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Button clsName={'startGameBtn'}></Button>
+          <Button clsName={'startGameBtn'} text={'Start'} location={'/Game'}></Button>
         </header>
       </div>
   );

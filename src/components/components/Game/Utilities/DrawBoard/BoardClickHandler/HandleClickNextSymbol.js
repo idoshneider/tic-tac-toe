@@ -8,7 +8,7 @@ import store from "../../../../../../index"
 import DrawX from "../../../../../../actions/SYmbolActions/DrawX";
 import Xwon from "../../../../../../actions/ScoreBoardActions/Xwon";
 
-    const HandleClickNextSymbol = (index) =>{
+    const handleNextSymbolClick = (index) =>{
         let gameOver = store.getState().gameOver;
         let history = store.getState().history;
         let symbol = store.getState().symbol;
@@ -55,4 +55,4 @@ import Xwon from "../../../../../../actions/ScoreBoardActions/Xwon";
           store.dispatch(WriteGameOver());
         }
       }
-    export default HandleClickNextSymbol;
+    export default handleNextSymbolClick;

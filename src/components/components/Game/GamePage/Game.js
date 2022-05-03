@@ -6,17 +6,20 @@ import Scoreboard from "../Utilities/ScoreBoard/ScoreBoard.js";
 import Button from "../Utilities/Button/Button.js";
 
 import Clock from 'react-live-clock';
-import { useSelector } from "react-redux";
-import HandleClickClearTable from "../Utilities/Button/ClickHandlers/HandleClickClearTable";
+import { useDispatch, useSelector } from "react-redux";
+import handleClearTableClick from "../Utilities/Button/ClickHandlers/HandleClickClearTable";
 import buildArr from "../../../../components/components/Game/Utilities/CreateInput/InputHandler/BuildArr"
-import HandleClickNextSymbol from "../Utilities/DrawBoard/BoardClickHandler/HandleClickNextSymbol";
+import handleNextSymbolClick from "../Utilities/DrawBoard/BoardClickHandler/HandleClickNextSymbol";
+import SetSize from '../../../../actions/SizeActions/SetSIze';
 
 function Game (){
-    let widthSize = useSelector(state => state.numsize);
-    let symbol = useSelector(state => state.symbol);
-    let gameOver = useSelector(state => state.gameOver);
-    let winner = useSelector(state => state.winner);
-    let buttonArr = useSelector(state => state.buttonArr);
+    const widthSize = useSelector(state => state.numsize);
+    const symbol = useSelector(state => state.symbol);
+    const gameOver = useSelector(state => state.gameOver);
+    const winner = useSelector(state => state.winner);
+    const buttonArr = useSelector(state => state.buttonArr);
+    const dispatch = useDispatch()
+    const onSetSizeChange = (event) => dispatch(SetSize((Number(event.target.value))))
 
     return( 
       <div className="game">
@@ -24,22 +27,11 @@ function Game (){
             <Clock format={'HH:mm:ss'} ticking = {true} timezone = {'israel'} />
         </div>
 
-        <div className="scoreBoard">
             <Scoreboard gameOver={gameOver} symbol={symbol} winner={winner}></Scoreboard>
-        </div>
-        
-        <div className="board" style={{width:(widthSize + 1)*83}}>
-            <DrawBoard buttonArr={buttonArr} action={HandleClickNextSymbol}></DrawBoard>
-        </div>
-
-        <div className="input">
-            <Createinput buildArr={buildArr}></Createinput>
-        </div> 
-
-        <div className="button1">
-            <Button clsName={'clear'} action={HandleClickClearTable}></Button>
-            <Button clsName={'homeBtn'} action={HandleClickClearTable}></Button>
-        </div>
+            <DrawBoard buttonArr={buttonArr} handleNextSymbolClick={handleNextSymbolClick} widthSize={widthSize}></DrawBoard>
+            <Createinput buildArr={buildArr} onSetSizeChange={onSetSizeChange}></Createinput>
+            <Button clsName={'clear'} handleClearTableClick={handleClearTableClick} text={'Clear'}></Button>
+            <Button clsName={'homeBtn'} handleClearTableClick={handleClearTableClick} text={'Home'} location={'/'}></Button>
     </div>
     )
   }

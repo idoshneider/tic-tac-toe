@@ -3,7 +3,8 @@ import "./ScoreBoard.css"
 
 const Scoreboard = (props) => {
     return (
-        <>
+      <div className="scoreBoard">
+
         {
           props.winner !== '' ? 
             <>
@@ -18,7 +19,7 @@ const Scoreboard = (props) => {
                 <h3 className={`is-${props.symbol}`}>{props.symbol}</h3>
               </div>
         }
-        </> 
+        </div>
     );
 }
 
