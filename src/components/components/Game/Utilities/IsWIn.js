@@ -13,7 +13,7 @@ export const IsWin = (buttonArr,size) => {
         }
         
         if(flag){
-          return "winner is " + prev;
+          return true
           
         }
         prev = buttonArr[j+1];
@@ -32,7 +32,7 @@ export const IsWin = (buttonArr,size) => {
           }
           
           if(flag){
-            return "winner is " + prev;
+            return true
             
           }
           prev = buttonArr[i+1];
@@ -48,7 +48,7 @@ export const IsWin = (buttonArr,size) => {
         prev = buttonArr[i];
       }
       if(flag){
-        return "winner is " + prev;
+        return true
       }
       /////////
       prev = buttonArr[size-1];
@@ -60,9 +60,9 @@ export const IsWin = (buttonArr,size) => {
         prev = buttonArr[i];
       }
       if(flag){
-        return "winner is " + prev;
+        return true
       }
 
-      return '';
+      return false;
 
     }

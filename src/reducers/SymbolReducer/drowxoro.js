@@ -1,10 +1,10 @@
 
 const DrawXorO = (state = 'X' ,action) =>{
     switch(action.type){
-        case 'drawx':
+        case 'drawX':
             state = 'X'
             return state;
-        case 'drawo':
+        case 'drawO':
             state = 'O'
             return state;
         default: return state;
