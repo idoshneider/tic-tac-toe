@@ -67,3 +67,8 @@
       0px -10px 100px #1fd1f9;
   }
 }
+.inputs{
+  display: flex;
+  flex-direction: row;
+  padding-right: 60px;
+}

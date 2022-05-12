@@ -1,6 +1,6 @@
-const WriteNothing = () =>{
-    return {
-        type: ''
-    }
-}
+const WriteNothing = () => {
+  return {
+    type: "",
+  };
+};
 export default WriteNothing;

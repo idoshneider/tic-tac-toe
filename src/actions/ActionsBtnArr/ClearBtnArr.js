@@ -1,6 +1,6 @@
-const ClearBtnArr = () =>{
-    return {
-        type: 'clr'
-    }
-}
+const ClearBtnArr = () => {
+  return {
+    type: "clr",
+  };
+};
 export default ClearBtnArr;

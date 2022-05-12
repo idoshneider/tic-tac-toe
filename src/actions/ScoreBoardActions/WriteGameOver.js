@@ -1,6 +1,6 @@
-const WriteGameOver = () =>{
-    return {
-        type: 'Game Over'
-    }
-}
+const WriteGameOver = () => {
+  return {
+    type: "Game Over",
+  };
+};
 export default WriteGameOver;

@@ -1,6 +1,6 @@
-const ClearHistory = () =>{
-    return {
-        type: 'clear'
-    }
-}
+const ClearHistory = () => {
+  return {
+    type: "clear",
+  };
+};
 export default ClearHistory;
