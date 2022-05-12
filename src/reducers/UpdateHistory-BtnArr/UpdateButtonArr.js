@@ -6,7 +6,7 @@ const UpdateButtonArr = (state = Array(9).fill(''),action) =>{
     else if(action.type === 'clr'){
         state.fill('');
     }
-    else if(action.type ==='build'){
+    else if(action.type === 'build'){
         state = Array(action.size).fill('');
     }
     else{

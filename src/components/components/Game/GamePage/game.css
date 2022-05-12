@@ -13,7 +13,24 @@
 .time {
   position: absolute;
   top: 5%;
-  left: 6%;
+  right: -3%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #FFA500;
+  font-size: 60px;
+  font-family: Orbitron;
+  letter-spacing: 7px;
+  color: #fff;
+  letter-spacing: -7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  animation: blur 1s ease-out infinite;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+.date {
+  position: absolute;
+  top: 5%;
+  left: 7%;
   transform: translateX(-50%) translateY(-50%);
   color: #FFA500;
   font-size: 60px;

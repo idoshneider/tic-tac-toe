@@ -1,10 +1,10 @@
-import InsertToBtnArr from "../../../../../../actions/ActionsBtnArr/InsertToBtnArr";
-import PushToHistory from "../../../../../../actions/HistoryActions/PushToHistory";
-import WriteGameOver from "../../../../../../actions/ScoreBoardActions/WriteGameOver";
-import { IsWin } from "../../IsWIn";
-import store from "../../../../../../index"
-import DrawSymbol from "../../../../../../actions/SYmbolActions/DrawSymbol";
-import SetWinner from "../../../../../../actions/ScoreBoardActions/SetWinner";
+import InsertToBtnArr from "../../../../../actions/ActionsBtnArr/InsertToBtnArr";
+import PushToHistory from "../../../../../actions/HistoryActions/PushToHistory";
+import WriteGameOver from "../../../../../actions/ScoreBoardActions/WriteGameOver";
+import { IsWin } from "../../Utilities/IsWIn";
+import store from "../../../../../index"
+import DrawSymbol from "../../../../../actions/SYmbolActions/DrawSymbol";
+import SetWinner from "../../../../../actions/ScoreBoardActions/SetWinner";
 
     const handleNextSymbolClick = (index) =>{
         let gameOver = store.getState().gameOver;
