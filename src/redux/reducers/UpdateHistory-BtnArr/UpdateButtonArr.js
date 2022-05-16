@@ -3,10 +3,16 @@ const UpdateButtonArr = (state = Array(9).fill(""), action) => {
     state[action.index] = action.sym;
   } else if (action.type === "clr") {
     state.fill("");
+    return state;
   } else if (action.type === "build") {
-    state = Array(action.size).fill("");
-  } else {
-    state = state;
+    return Array(action.size).fill("");
+  } 
+  else if(action.type === "goBack"){
+    state[action.i] = "";
+    return state;
+  }
+  else {
+    return state;
   }
   return state;
 };

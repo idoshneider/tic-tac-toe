@@ -1,18 +1,18 @@
 import React from "react";
-import "../NameO/NameO.css";
+import "../NameO/NameO.css"
 // import "../Names/Names.css"
-const Createinput = (props) => {
+const NameO = (props) => {
   return (
-    <div className="nameO">
+      <div className="nameO">
       <input
         onChange={props.onSetNameOChange}
-        onKeyPress={(event) => props.handleClearTableClick(event)}
+        onKeyPress={(event) => props.OnSetNamesPress(event,props.stateNameX,props.stateNameO)}
         className="searchbar"
-        type="string"
+        type="text"
         placeholder="Player O(Insert Name)"
       />
-    </div>
+      </div>
   );
 };
 
-export default Createinput;
+export default NameO;

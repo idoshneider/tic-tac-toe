@@ -5,16 +5,20 @@ import App from "./components/components/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
-import DrawXorO from "./reducers/SymbolReducer/drowxoro";
-import GameOverOrNot from "./reducers/ScoreBoardReducers/GameOverOrNot";
-import WhoWon from "./reducers/ScoreBoardReducers/WhoWon";
-import UpdateSize from "./reducers/UpdateSizeReducers/UpdateSize";
-import UpdateHistory from "./reducers/UpdateHistory-BtnArr/UpdateHistory";
-import UpdateButtonArr from "./reducers/UpdateHistory-BtnArr/UpdateButtonArr";
-import UpdateNumSize from "./reducers/UpdateSizeReducers/UpdateNumSize";
-import UpdateNameX from "./reducers/UpdateNames/UpdateNameX";
-import UpdateNameO from "./reducers/UpdateNames/UpdareNameO";
+import DrawXorO from "./redux/reducers/SymbolReducer/drowxoro";
+import GameOverOrNot from "./redux/reducers/ScoreBoardReducers/GameOverOrNot";
+import WhoWon from "./redux/reducers/ScoreBoardReducers/WhoWon";
+import UpdateSize from "./redux/reducers/UpdateSizeReducers/UpdateSize";
+import UpdateHistory from "./redux/reducers/UpdateHistory-BtnArr/UpdateHistory";
+import UpdateButtonArr from "./redux/reducers/UpdateHistory-BtnArr/UpdateButtonArr";
+import UpdateNumSize from "./redux/reducers/UpdateSizeReducers/UpdateNumSize";
+import UpdateNameX from "./redux/reducers/UpdateNames/UpdateNameX";
+import UpdateNameO from "./redux/reducers/UpdateNames/UpdareNameO";
+import UpdateXScore from "./redux/reducers/UpdateScores/UpdateXScore";
+import UpdateOScore from "./redux/reducers/UpdateScores/UpdateOScore";
 const reducer = combineReducers({
+  oScore: UpdateOScore,
+  xScore:UpdateXScore,
   nameO: UpdateNameO,
   nameX: UpdateNameX,
   numsize: UpdateNumSize,

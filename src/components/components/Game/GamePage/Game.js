@@ -11,8 +11,13 @@ import { useDispatch, useSelector } from "react-redux";
 import handleClearTableClick from "../../Button/ClickHandlers/HandleClickClearTable";
 import buildArr from "../CreateInput/InputHandler/BuildArr";
 import handleNextSymbolClick from "../DrawBoard/BoardClickHandler/HandleClickNextSymbol";
-import SetSize from "../../../../actions/SizeActions/SetSIze";
-import SetNames from "../../../../actions/ActionsNames/SetNames";
+import SetSize from "../../../../redux/actions/SizeActions/SetSIze";
+import OnSetNamesPress from "../Names/OnSetNamesPress";
+import handlePreviousClick from "../../Button/ClickHandlers/HandlePreviousClick";
+import handleRandomClick from "../../Button/ClickHandlers/HandleRandomClick";
+// import SetNames from "../../../../actions/ActionsNames/SetNameX";
+import { useState } from "react";
+
 
 function Game() {
   const widthSize = useSelector((state) => state.numsize),
@@ -22,18 +27,18 @@ function Game() {
     buttonArr = useSelector((state) => state.buttonArr),
     nameX = useSelector((state) => state.nameX),
     nameO = useSelector((state) => state.nameO),
+    xScore = useSelector((state) => state.xScore),
+    oScore = useSelector((state) => state.oScore),
+    [stateNameX, SetStateNameX] = useState(""),
+    [stateNameO, SetStateNameO] = useState(""),
     dispatch = useDispatch(),
     onSetSizeChange = (event) => {
       Number(event.target.value) >= 3
         ? dispatch(SetSize(Number(event.target.value)))
         : dispatch(SetSize(3));
     },
-    onSetNameXChange = (event) => {
-      dispatch(SetNames(event.target.value, nameO));
-    },
-    onSetNameOChange = (event) => {
-      dispatch(SetNames(nameX, event.target.value));
-    };
+    onSetNameXChange = (event) => SetStateNameX(event.target.value),
+    onSetNameOChange = (event) => SetStateNameO(event.target.value);
   return (
     <div className="game">
       <Clock />
@@ -43,6 +48,8 @@ function Game() {
         winner={winner}
         nameX={nameX}
         nameO={nameO}
+        xScore={xScore}
+        oScore={oScore}
       />
       <DrawBoard
         buttonArr={buttonArr}
@@ -52,12 +59,16 @@ function Game() {
       <div className="inputs">
         <NameX
           onSetNameXChange={onSetNameXChange}
-          handleClearTableClick={handleClearTableClick}
+          OnSetNamesPress={OnSetNamesPress}
+          stateNameX={stateNameX}
+          stateNameO={stateNameO}
         />
         <Createinput buildArr={buildArr} onSetSizeChange={onSetSizeChange} />
         <NameO
           onSetNameOChange={onSetNameOChange}
-          handleClearTableClick={handleClearTableClick}
+          OnSetNamesPress={OnSetNamesPress}
+          stateNameX={stateNameX}
+          stateNameO={stateNameO}
         />
       </div>
       <Button
@@ -70,6 +81,16 @@ function Game() {
         handleClearTableClick={handleClearTableClick}
         text={"Home"}
         location={"/"}
+      />
+      <Button
+        className={"previous"}
+        handlePreviousClick={handlePreviousClick}
+        text={"Previous Move"}
+      />
+       <Button
+        className={"random"}
+        handleRandomClick={handleRandomClick}
+        text={"I Dare You"}
       />
     </div>
   );

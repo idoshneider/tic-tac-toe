@@ -14,11 +14,21 @@ const Button = (props) => {
             {props.text}
           </button>
         </Link>
-      ) : (
+      ) : props.className === "clear" ? (
         <button
           className={props.className}
           onClick={props.handleClearTableClick}
         >
+          {props.text}
+        </button>
+      ) : 
+       props.className === "random" ?
+       <button className={props.className} onClick={props.handleRandomClick}>
+          {props.text}
+        </button>
+        :
+      (
+        <button className={props.className} onClick={props.handlePreviousClick}>
           {props.text}
         </button>
       )}

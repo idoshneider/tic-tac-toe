@@ -1,3 +1,7 @@
+.scoreBoard{
+    display: flex;
+    flex-direction: column;
+}
 .divturn{
     display: flex;
     flex-direction: row;
@@ -20,6 +24,7 @@
 }
 .turn{
     color:indigo;
+    /* padding-left: 150px */
 }
 .is-O{
     color: #00ddeb;
@@ -27,3 +32,11 @@
 .is-X{
     color: #AF40FF;
     }
+.score{
+    display: flex;
+    flex-direction: row;
+    color: chocolate;
+}
+.xScore{
+    margin-right: 700px;
+}

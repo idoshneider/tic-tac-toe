@@ -1,5 +1,5 @@
-import BuildBtnArr from "../../../../../actions/ActionsBtnArr/BuildBtnArr";
-import SetNumSize from "../../../../../actions/SizeActions/SetNumSize";
+import BuildBtnArr from "../../../../../redux/actions/ActionsBtnArr/BuildBtnArr";
+import SetNumSize from "../../../../../redux/actions/SizeActions/SetNumSize";
 import HandleClickClearTable from "../../../Button/ClickHandlers/HandleClickClearTable";
 import store from "../../../../../index";
 const BuildArr = (event) => {
