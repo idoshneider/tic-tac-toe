@@ -72,3 +72,7 @@
   flex-direction: row;
   padding-right: 60px;
 }
+.rowContainer{
+  display: flex;
+  flex-direction: row;
+}

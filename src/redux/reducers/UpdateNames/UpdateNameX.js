@@ -1,5 +1,5 @@
 const UpdateNameX = (state = "Player X", action) => {
-  typeof action.nameX === 'string' && action.nameX !== '' ? state = action.nameX : state = state;
+  state = typeof action.nameX === 'string' && action.nameX !== '' ? action.nameX : state;
   return state;
   };
   export default UpdateNameX;

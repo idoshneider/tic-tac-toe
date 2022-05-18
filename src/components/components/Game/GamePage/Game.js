@@ -17,8 +17,6 @@ import handlePreviousClick from "../../Button/ClickHandlers/HandlePreviousClick"
 import handleRandomClick from "../../Button/ClickHandlers/HandleRandomClick";
 // import SetNames from "../../../../actions/ActionsNames/SetNameX";
 import { useState } from "react";
-
-
 function Game() {
   const widthSize = useSelector((state) => state.numsize),
     symbol = useSelector((state) => state.symbol),
@@ -36,6 +34,7 @@ function Game() {
       Number(event.target.value) >= 3
         ? dispatch(SetSize(Number(event.target.value)))
         : dispatch(SetSize(3));
+      //(a > b && a > c)
     },
     onSetNameXChange = (event) => SetStateNameX(event.target.value),
     onSetNameOChange = (event) => SetStateNameO(event.target.value);
@@ -82,16 +81,18 @@ function Game() {
         text={"Home"}
         location={"/"}
       />
-      <Button
-        className={"previous"}
-        handlePreviousClick={handlePreviousClick}
-        text={"Previous Move"}
-      />
-       <Button
-        className={"random"}
-        handleRandomClick={handleRandomClick}
-        text={"I Dare You"}
-      />
+      <div className="rowContainer">
+        <Button
+          className={"previous"}
+          handlePreviousClick={handlePreviousClick}
+          text={"Previous Move"}
+        />
+        <Button
+          className={"random"}
+          handleRandomClick={handleRandomClick}
+          text={"I Dare You"}
+        />
+      </div>
     </div>
   );
 }
