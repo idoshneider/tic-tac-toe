@@ -1,7 +1,5 @@
 import ClearBtnArr from "../../../../redux/actions/ActionsBtnArr/ClearBtnArr";
-import SetNameO from "../../../../redux/actions/ActionsNames/SetNameO";
 // import SetNames from "../../../../actions/ActionsNames/SetNames";
-import SetNameX from "../../../../redux/actions/ActionsNames/SetNameX";
 import ClearHistory from "../../../../redux/actions/HistoryActions/ClearHistory";
 import DrawSymbol from "../../../../redux/actions/SYmbolActions/DrawSymbol";
 import WriteNothing from "../../../../redux/actions/WriteNothing";
