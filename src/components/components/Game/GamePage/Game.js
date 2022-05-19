@@ -27,6 +27,7 @@ function Game() {
     nameO = useSelector((state) => state.nameO),
     xScore = useSelector((state) => state.xScore),
     oScore = useSelector((state) => state.oScore),
+    timer = useSelector((state) => state.timer),
     [stateNameX, SetStateNameX] = useState(""),
     [stateNameO, SetStateNameO] = useState(""),
     dispatch = useDispatch(),
@@ -40,7 +41,7 @@ function Game() {
     onSetNameOChange = (event) => SetStateNameO(event.target.value);
   return (
     <div className="game">
-      <Clock />
+      <Clock/>
       <Scoreboard
         gameOver={gameOver}
         symbol={symbol}
@@ -49,6 +50,7 @@ function Game() {
         nameO={nameO}
         xScore={xScore}
         oScore={oScore}
+        timer={timer}
       />
       <DrawBoard
         buttonArr={buttonArr}

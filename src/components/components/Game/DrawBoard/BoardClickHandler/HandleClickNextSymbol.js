@@ -6,6 +6,7 @@ import store from "../../../../../index";
 import DrawSymbol from "../../../../../redux/actions/SYmbolActions/DrawSymbol";
 import SetWinner from "../../../../../redux/actions/ScoreBoardActions/SetWinner";
 import IncrementScore from "../../../../../redux/actions/PlayersScore/IncrementScore";
+import ResetTimer from "../../../../../redux/actions/timer/ResetTimer";
 
 const handleNextSymbolClick = (index) => {
   let gameOver = store.getState().gameOver;
@@ -17,18 +18,24 @@ const handleNextSymbolClick = (index) => {
   // let nameO = store.getState().nameO;
   if (!gameOver) {
     if (history.length === 0) {
-      store.dispatch(PushToHistory(symbol,index));
+      store.dispatch(PushToHistory(symbol, index));
       store.dispatch(InsertToBtnArr(symbol, index));
       store.dispatch(DrawSymbol("O"));
-    } else if (history[history.length - 1][0] === "X" && buttonArr[index] === "") {
-      store.dispatch(PushToHistory(symbol,index));
+      store.dispatch(ResetTimer());
+    } else if (
+      history[history.length - 1][0] === "X" &&
+      buttonArr[index] === ""
+    ) {
+      store.dispatch(PushToHistory(symbol, index));
       store.dispatch(InsertToBtnArr(symbol, index));
       store.dispatch(DrawSymbol("X"));
+      store.dispatch(ResetTimer());
     } else {
       if (buttonArr[index] === "") {
-        store.dispatch(PushToHistory(symbol,index));
+        store.dispatch(PushToHistory(symbol, index));
         store.dispatch(InsertToBtnArr(symbol, index));
         store.dispatch(DrawSymbol("O"));
+        store.dispatch(ResetTimer());
       }
     }
     if (history.length > size) {

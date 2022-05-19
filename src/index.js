@@ -16,7 +16,9 @@ import UpdateNameX from "./redux/reducers/UpdateNames/UpdateNameX";
 import UpdateNameO from "./redux/reducers/UpdateNames/UpdareNameO";
 import UpdateXScore from "./redux/reducers/UpdateScores/UpdateXScore";
 import UpdateOScore from "./redux/reducers/UpdateScores/UpdateOScore";
+import UpdateTimer from "./redux/reducers/UpdateTimer/UpdateTimer";
 const reducer = combineReducers({
+  timer: UpdateTimer,
   oScore: UpdateOScore,
   xScore:UpdateXScore,
   nameO: UpdateNameO,

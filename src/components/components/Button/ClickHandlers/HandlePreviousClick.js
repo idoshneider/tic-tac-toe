@@ -2,6 +2,7 @@ import store from "../../../..";
 import PreviousMove from "../../../../redux/actions/HistoryActions/PreviousMove";
 import DecrementScore from "../../../../redux/actions/PlayersScore/DecrementScore";
 import DrawSymbol from "../../../../redux/actions/SYmbolActions/DrawSymbol";
+import ResetTimer from "../../../../redux/actions/timer/ResetTimer";
 import WriteNothing from "../../../../redux/actions/WriteNothing";
 
 const handlePreviousClick = () => {
@@ -16,6 +17,8 @@ const handlePreviousClick = () => {
       store.dispatch(DecrementScore(store.getState().symbol));
     }
     store.dispatch(WriteNothing());
+    store.dispatch(ResetTimer());
+
   }
 };
 export default handlePreviousClick;
