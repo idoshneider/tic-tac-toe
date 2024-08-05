@@ -1,0 +1,47 @@
+.scoreBoard{
+    display: flex;
+    flex-direction: column;
+}
+.divturn{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+    margin-right: 68px;
+}
+.winner{
+    margin-right: 68px;
+    margin-bottom: 60px;
+    color:indigo;
+}
+.gameover{
+    margin-right: 68px;
+    color:indigo;
+}
+.draw{
+    margin-right: 68px;
+    color:indigo;
+
+}
+.turn{
+    color:indigo;
+    /* padding-left: 150px */
+}
+.is-O{
+    color: #00ddeb;
+}
+.is-X{
+    color: #AF40FF;
+    }
+.score{
+    display: flex;
+    flex-direction: row;
+    color: chocolate;
+}
+.xScore{
+    margin-right: 700px;
+}
+.timer{
+    color: chocolate;
+    margin-right: 20%;
+
+}
